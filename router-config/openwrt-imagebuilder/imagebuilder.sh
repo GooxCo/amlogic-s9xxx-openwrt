@@ -149,18 +149,12 @@ rebuild_firmware() {
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
         openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
-        liblucihttp-lua ppp ppp-mod-pppoe proto-bonding cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi file \
-        php7-mod-fileinfo rpcd-mod-file usbids usbutils kmod-usb-acm kmod-usb-core kmod-usb-dwc2 \
-        kmod-usb-ehci kmod-usb-net kmod-usb-net-asix kmod-usb-net-cdc-ether kmod-usb-net-cdc-mbim \
-        \
-        kmod-usb-net-cdc-ncm kmod-usb-net-dm9601-ether kmod-usb-net-huawei-cdc-ncm kmod-usb-net-ipheth kmod-usb-net-qmi-wwan \
-        kmod-usb-net-rndis kmod-usb-net-rtl8150 kmod-usb-net-rtl8152 kmod-usb-serial kmod-usb-serial-option \
-        kmod-usb-serial-qualcomm kmod-usb-serial-sierrawireless kmod-usb-serial-wwan kmod-usb-storage kmod-usb-storage-extras \
-        kmod-usb-storage-uas kmod-usb-wdm kmod-usb2 libusb-1.0-0  libusbmuxd \
+        liblucihttp-lua ppp ppp-mod-pppoe cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi file \
+        php7-mod-fileinfo rpcd-mod-file usbids usbutils \
         \
         luci luci-base luci-lib-base luci-i18n-base-zh-cn luci-lib-ipkg \
         luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
-        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-bonding luci-proto-ipip luci-proto-ncm \
+        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
         luci-proto-ipv6 luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay luci-proto-mbim luci-proto-modemmanager \
         \
         luci-theme-material \
