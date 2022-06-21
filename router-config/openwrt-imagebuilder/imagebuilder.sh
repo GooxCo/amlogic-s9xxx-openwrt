@@ -153,7 +153,7 @@ rebuild_firmware() {
         \
         luci luci-base luci-lib-base luci-i18n-base-zh-cn luci-lib-ipkg \
         luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
-        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm luci-proto-mbim \
+        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
         luci-proto-ipv6 luci-proto-ppp luci-proto-qmi \
         \
         luci-theme-material \
