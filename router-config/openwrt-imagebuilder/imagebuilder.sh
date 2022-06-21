@@ -154,7 +154,7 @@ rebuild_firmware() {
         luci luci-base luci-lib-base luci-i18n-base-zh-cn luci-lib-ipkg \
         luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
         luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
-        luci-proto-ipv6 luci-proto-ppp luci-proto-qmi luci-proto-mbim luci-proto-modemmanager \
+        luci-proto-ipv6 luci-proto-ppp luci-proto-qmi \
         \
         luci-theme-material \
         \
@@ -163,6 +163,8 @@ rebuild_firmware() {
         \
         luci-i18n-opkg-zh-cn luci-i18n-firewall-zh-cn \
         luci-i18n-ttyd-zh-cn luci-i18n-amlogic-zh-cn \
+        \
+        wwan mwan3 luci-app-mwan3 usbids usbutils file \
         "
 
     # Rebuild firmware
