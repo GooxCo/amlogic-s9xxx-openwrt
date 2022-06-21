@@ -163,8 +163,6 @@ rebuild_firmware() {
         \
         luci-i18n-opkg-zh-cn luci-i18n-firewall-zh-cn \
         luci-i18n-ttyd-zh-cn luci-i18n-amlogic-zh-cn \
-        \
-        usbids usbutils \
         "
 
     # Rebuild firmware
