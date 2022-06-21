@@ -164,7 +164,7 @@ rebuild_firmware() {
         luci-i18n-opkg-zh-cn luci-i18n-firewall-zh-cn \
         luci-i18n-ttyd-zh-cn luci-i18n-amlogic-zh-cn \
         \
-        mwan3 luci-app-mwan3 usbids usbutils file nano automount kmod-usb-net-rndis \
+        mwan3 luci-app-mwan3 usbids usbutils file nano kmod-usb-net-rndis \
         "
 
     # Rebuild firmware
