@@ -165,6 +165,9 @@ rebuild_firmware() {
         luci-i18n-ttyd-zh-cn luci-i18n-amlogic-zh-cn \
         \
         mwan3 luci-app-mwan3 usbids usbutils file nano kmod-usb-net-rndis \
+        \
+        ca-certificates dnsmasq-full ip-full iptables-mod-tproxy iptables-mod-extra \
+        libcap-bin ruby ruby-yaml kmod-tun ip6tables-mod-nat kmod-inet-diag \
         "
 
     # Rebuild firmware
