@@ -87,7 +87,7 @@ custom_packages() {
     wget -q ${amlogic_i18n_down} -O packages/${amlogic_i18n_down##*/}
     [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_i18n} ] is downloaded successfully."
     # Download other luci-app-openclash
-    openclash_api="https://github.com/vernesong/OpenClash/releases"
+    openclash_api="https://api.github.com/repos/vernesong/openclash/releases"
     #
     openclash_file="luci-app-openclash"
     openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
