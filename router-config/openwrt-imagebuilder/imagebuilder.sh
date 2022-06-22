@@ -177,7 +177,7 @@ rebuild_firmware() {
         libcap-bin ruby ruby-yaml kmod-tun ip6tables-mod-nat \
         libnettle8 libnetfilter-conntrack3 libnfnetlink0 kmod-nf-conntrack-netlink \
         \
-        adblock luci-app-adblock firewall nano luci-app-openclash \
+        adblock luci-app-adblock \
         "
 
     # Rebuild firmware
