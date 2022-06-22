@@ -89,7 +89,7 @@ custom_packages() {
     # Download other luci-app-openclash
     openclash_api="https://github.com/vernesong/OpenClash/releases"
     #
-    openclash_file="luci-app-openclash_0.45.33-beta_all"
+    openclash_file="luci-app-openclash"
     openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
     wget -q ${openclash_file_down} -O packages/${openclash_file_down##*/}
     [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${openclash_file} ] is downloaded successfully."
@@ -178,7 +178,7 @@ rebuild_firmware() {
         \
         dnsmasq automount hostapd \
         \
-        adblock luci-app-adblock luci-app-openclash_0.45.33-beta_all \
+        adblock luci-app-adblock luci-app-openclash \
         "
 
     # Rebuild firmware
