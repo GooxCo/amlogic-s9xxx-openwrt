@@ -147,21 +147,21 @@ rebuild_firmware() {
     echo -e "${STEPS} Start building OpenWrt with Image Builder..."
     # Selecting packages, lib, theme, app and i18n
     my_packages="\
-cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
-libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
-luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
-luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
-luci-theme-bootstrap px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci \
-rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
-ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
-kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
-libc php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-zip php8-mod-iconv php8-mod-mbstring \
-zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-app-mwan3 luci-theme-material \
-git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap luci-app-vnstat2 vnstat2 curl ca-certificates \
-netdata httping coreutils-timeout kmod-usb-net-rndis \
-usbutils kmod-usb-net-cdc-ether usb-modeswitch kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152
-"
+    cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
+    libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
+    luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
+    luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
+    luci-theme-bootstrap px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci \
+    rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
+    ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
+    kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+    kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
+    libc php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-zip php8-mod-iconv php8-mod-mbstring \
+    zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-app-mwan3 luci-theme-material \
+    git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap luci-app-vnstat2 vnstat2 curl ca-certificates \
+    netdata httping coreutils-timeout kmod-usb-net-rndis \
+    usbutils kmod-usb-net-cdc-ether usb-modeswitch kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152
+    "
 
     # Rebuild firmware
     make image PROFILE="Default" PACKAGES="${my_packages}" FILES="files"
