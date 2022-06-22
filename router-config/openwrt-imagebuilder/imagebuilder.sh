@@ -91,7 +91,7 @@ custom_packages() {
     #
     openclash_file="luci-app-openclash_0.45.33-beta_all"
     openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
-    wget -q ${openclash_file_down} -O packages/${amlogic_file_down##*/}
+    wget -q ${openclash_file_down} -O packages/${openclash_file_down##*/}
     [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${openclash_file} ] is downloaded successfully."
     # Download other luci-app-xxx
     # ......
