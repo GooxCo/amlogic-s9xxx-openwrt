@@ -165,7 +165,7 @@ rebuild_firmware() {
         \
         luci-theme-material \
         \
-        luci-app-opkg luci-app-firewall \
+        luci-app-opkg \
         luci-app-ttyd luci-app-amlogic \
         \
         luci-i18n-opkg-zh-cn luci-i18n-firewall-zh-cn \
