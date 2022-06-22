@@ -166,7 +166,7 @@ rebuild_firmware() {
         mwan3 luci-app-mwan3 usbids usbutils file nano kmod-usb-net-rndis \
         \
         ca-certificates ip-full iptables-mod-tproxy iptables-mod-extra \
-        libcap-bin ruby ruby-yaml kmod-tun ip6tables-mod-nat kmod-inet-diag \
+        libcap-bin ruby ruby-yaml kmod-tun ip6tables-mod-nat \
         libnettle8 libnetfilter-conntrack3 libnfnetlink0 kmod-nf-conntrack-netlink \
         \
         adblock luci-app-adblock \
