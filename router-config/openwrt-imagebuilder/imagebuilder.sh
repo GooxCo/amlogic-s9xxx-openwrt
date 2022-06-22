@@ -168,6 +168,9 @@ rebuild_firmware() {
         \
         ca-certificates ip-full iptables-mod-tproxy iptables-mod-extra \
         libcap-bin ruby ruby-yaml kmod-tun ip6tables-mod-nat kmod-inet-diag \
+        libnettle8 libnetfilter-conntrack3 libnfnetlink0 kmod-nf-conntrack-netlink \
+        \
+        dnsmasq-full \
         "
 
     # Rebuild firmware
