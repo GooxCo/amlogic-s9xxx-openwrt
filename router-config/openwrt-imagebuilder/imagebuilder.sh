@@ -147,35 +147,21 @@ rebuild_firmware() {
     echo -e "${STEPS} Start building OpenWrt with Image Builder..."
     # Selecting packages, lib, theme, app and i18n
     my_packages="\
-        bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
-        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
-        xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
-        coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget curl whereis \
-        base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
-        ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
-        resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
-        openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
-        liblucihttp-lua ppp ppp-mod-pppoe cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
-        ca-certificates ip-full iptables-mod-tproxy iptables-mod-extra \
-        libcap-bin ruby ruby-yaml kmod-tun ip6tables-mod-nat \
-        libnettle8 libnetfilter-conntrack3 libnfnetlink0 kmod-nf-conntrack-netlink \
-        \
-        luci luci-base luci-lib-base luci-i18n-base-zh-cn luci-lib-ipkg \
-        luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
-        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
-        luci-proto-ipv6 luci-proto-ppp luci-proto-qmi \
-        \
-        luci-theme-material \
-        \
-        luci-app-opkg \
-        luci-app-ttyd luci-app-amlogic luci-app-openclash \
-        \
-        luci-i18n-opkg-zh-cn \
-        luci-i18n-ttyd-zh-cn luci-i18n-amlogic-zh-cn \
-        \
-        mwan3 luci-app-mwan3 usbids usbutils file nano kmod-usb-net-rndis \
-        "
+cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
+libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
+luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
+luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
+luci-theme-bootstrap px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci \
+rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
+ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
+kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
+libc php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-zip php8-mod-iconv php8-mod-mbstring \
+zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-app-mwan3 luci-theme-material \
+git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap luci-app-vnstat2 vnstat2 curl ca-certificates \
+netdata httping coreutils-timeout kmod-usb-net-rndis \
+usbutils kmod-usb-net-cdc-ether usb-modeswitch kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152
+"
 
     # Rebuild firmware
     make image PROFILE="Default" PACKAGES="${my_packages}" FILES="files"
