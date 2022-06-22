@@ -86,7 +86,13 @@ custom_packages() {
     amlogic_i18n_down="$(curl -s ${amlogic_api} | grep "browser_download_url" | grep -oE "https.*${amlogic_i18n}.*.ipk" | head -n 1)"
     wget -q ${amlogic_i18n_down} -O packages/${amlogic_i18n_down##*/}
     [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_i18n} ] is downloaded successfully."
-
+    # Download other luci-app-openclash
+    openclash_api="https://github.com/vernesong/OpenClash/releases"
+    #
+    openclash_file="luci-app-openclash_0.45.33-beta_all"
+    openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
+    wget -q ${openclash_file_down} -O packages/${amlogic_file_down##*/}
+    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${openclash_file} ] is downloaded successfully."
     # Download other luci-app-xxx
     # ......
 
@@ -170,7 +176,9 @@ rebuild_firmware() {
         libcap-bin ruby ruby-yaml kmod-tun ip6tables-mod-nat kmod-inet-diag \
         libnettle8 libnetfilter-conntrack3 libnfnetlink0 kmod-nf-conntrack-netlink \
         \
-        adblock luci-app-adblock dnsmasq \
+        dnsmasq dnsmasq-full \
+        \
+        adblock luci-app-adblock luci-app-openclash_0.45.33-beta_all \
         "
 
     # Rebuild firmware
