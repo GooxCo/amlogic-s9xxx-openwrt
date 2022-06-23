@@ -158,7 +158,7 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan block-mount usb-modeswitch usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        luci-app-amlogic iptables-mod-tproxy iptables-mod-extra libcap-bin ip6tables-mod-nat ruby ruby-yaml kmod-inet-diag libnetfilter-conntrack3\
+        luci-app-amlogic iptables-mod-tproxy iptables-mod-extra libcap-bin ip6tables-mod-nat ruby ruby-yaml libnetfilter-conntrack3\
         "
 
     # Rebuild firmware
