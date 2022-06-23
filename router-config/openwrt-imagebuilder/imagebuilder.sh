@@ -151,14 +151,14 @@ rebuild_firmware() {
         kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
         libc php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-zip php8-mod-iconv php8-mod-mbstring \
         zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-app-mwan3 luci-theme-material \
-        git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap luci-app-vnstat2 vnstat2 curl ca-certificates \
+        git git-http jq openssh-client openssl-util luci-app-ttyd ttyd zram-swap luci-app-vnstat2 vnstat2 curl ca-certificates \
         netdata httping coreutils-timeout perl fdisk \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan block-mount usb-modeswitch usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        luci-app-amlogic  \
+        luci-app-amlogic iptables-mod-tproxy iptables-mod-extra libcap-bin ip6tables-mod-nat ruby ruby-yaml kmod-inet-diag libnetfilter-conntrack3\
         "
 
     # Rebuild firmware
