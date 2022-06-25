@@ -159,7 +159,7 @@ rebuild_firmware() {
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
         luci-app-amlogic iptables-mod-tproxy iptables-mod-extra libcap-bin ip6tables-mod-nat ruby ruby-yaml libnetfilter-conntrack3 \
-        rrsync lighttpd-mod-access perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 \
+        rrsync perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 \
         "
 
     # Rebuild firmware
