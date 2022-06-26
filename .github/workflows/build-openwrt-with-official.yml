@@ -59,7 +59,7 @@ on:
   #- cron: '0 17 * * 0'
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt/tree
+  REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: v22.03.0-rc4
   FEEDS_CONF: router-config/openwrt-master/feeds.conf.default
   CONFIG_FILE: router-config/openwrt-master/.config
