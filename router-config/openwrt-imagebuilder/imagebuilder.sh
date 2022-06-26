@@ -140,26 +140,34 @@ rebuild_firmware() {
     echo -e "${STEPS} Start building OpenWrt with Image Builder..."
     # Selecting packages, lib, theme, app and i18n
     my_packages="\
-        cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
-        libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
-        luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
-        luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
-        luci-theme-bootstrap px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci \
-        rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
-        ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
-        kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
-        libc php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-zip php8-mod-iconv php8-mod-mbstring \
-        zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-app-mwan3 luci-theme-material \
-        git git-http jq openssh-client openssl-util luci-app-ttyd ttyd zram-swap curl ca-certificates \
-        netdata httping coreutils-timeout perl fdisk \
-        kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
-        kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
-        kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan block-mount usb-modeswitch usbutils \
-        kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
+        bash luci uci perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
+        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
+        xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
+        coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
+        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano curl whereis \
+        base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
+        ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
+        resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
+        openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
+        liblucihttp-lua ppp ppp-mod-pppoe proto-bonding cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
         \
-        luci-app-amlogic iptables-mod-tproxy iptables-mod-extra libcap-bin ip6tables-mod-nat ruby ruby-yaml libnetfilter-conntrack3 \
-        rrsync perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 \
+        luci luci-base luci-lib-base luci-lib-ipkg \
+        luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
+        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-bonding luci-proto-ipip luci-proto-ncm \
+        luci-proto-ipv6 luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay \
+        \
+        luci-theme-material \
+        \
+        luci-app-opkg \
+        luci-app-ttyd luci-app-amlogic \
+        \
+        kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
+		kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
+		kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
+		kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
+        \
+        mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
+        luci-app-travelmate -dnsmasq \
         "
 
     # Rebuild firmware
