@@ -28,17 +28,7 @@ echo "DISTRIB_SOURCECODE='openwrt.master'" >>package/base-files/files/etc/openwr
 #
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
-# Add p7zip
-svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
 
-# change timezone
-sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" -e "s/zh_cn/auto/g" package/default-settings/files/zzz-default-settings
-
-# temperature
-svn co https://github.com/gSpotx2f/luci-app-temp-status/trunk package/luci-app-temp-status
-
-# openclash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openclash
 # coolsnowwolf default software package replaced with Lienol related software package
 # rm -rf feeds/packages/utils/{containerd,libnetwork,runc,tini}
 # svn co https://github.com/Lienol/openwrt-packages/trunk/utils/{containerd,libnetwork,runc,tini} feeds/packages/utils
