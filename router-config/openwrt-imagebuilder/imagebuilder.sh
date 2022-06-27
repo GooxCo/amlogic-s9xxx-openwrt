@@ -168,6 +168,7 @@ rebuild_firmware() {
         \
         mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
         luci-app-travelmate -dnsmasq \
+	iptables-nft arptables-nft ebtables-nft xtables-nft \
         "
 
     # Rebuild firmware
