@@ -153,7 +153,7 @@ rebuild_firmware() {
         \
         luci luci-base luci-lib-base luci-lib-ipkg \
         luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
-        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-bonding luci-proto-ipip luci-proto-ncm \
+        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
         luci-proto-ipv6 luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay \
         \
         luci-theme-material \
@@ -166,9 +166,8 @@ rebuild_firmware() {
 		kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
 		kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
-        luci-app-travelmate -dnsmasq \
-	iptables-nft arptables-nft ebtables-nft xtables-nft \
+        mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy firewall luci-app-firewall \
+        iptables-nft arptables-nft ebtables-nft xtables-nft \
         "
 
     # Rebuild firmware
