@@ -135,6 +135,7 @@ adjust_settings() {
     # For other files
     # ......
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
+    sed -i "s|CONFIG_DEFAULT_firewall4=.*|# CONFIG_DEFAULT_firewall4 is not set|g" .config
 
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
@@ -165,7 +166,7 @@ rebuild_firmware() {
         \
         luci-theme-material \
         \
-        luci-app-opkg luci-app-firewall mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
+        luci-app-opkg firewall luci-app-firewall mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
         luci-app-ttyd luci-app-amlogic luci-app-openclash \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
@@ -174,6 +175,7 @@ rebuild_firmware() {
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
         ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
+        iptables-nft arptables-nft ebtables-nft xtables-nft \
         "
 
     # Rebuild firmware
