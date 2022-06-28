@@ -134,6 +134,7 @@ adjust_settings() {
 
     # For other files
     # ......
+    sed -i "s|CONFIG_DEFAULT_luci-app-firewall=.*|# CONFIG_DEFAULT_luci-app-firewall is not set|g" .config
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
     sed -i "s|CONFIG_DEFAULT_firewall4=.*|# CONFIG_DEFAULT_firewall4 is not set|g" .config
 
