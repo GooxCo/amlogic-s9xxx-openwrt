@@ -167,7 +167,7 @@ rebuild_firmware() {
         \
         luci-theme-material \
         \
-        luci-app-opkguci-app-firewall mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
+        luci-app-opkg luci-app-firewall mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
         luci-app-ttyd luci-app-amlogic luci-app-openclash \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
