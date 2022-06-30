@@ -152,8 +152,8 @@ rebuild_firmware() {
         bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
         lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
-        coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano curl whereis \
+        coreutils-base64 coreutils-nohup kmod-cfg80211 kmod-mac80211 \
+        hostapd-common wpa-cli iw subversion-client subversion-libs wget nano curl whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
@@ -167,7 +167,7 @@ rebuild_firmware() {
         \
         luci-theme-material \
         \
-        luci-app-opkg luci-app-firewall mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
+        luci-app-opkg mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
         luci-app-ttyd luci-app-amlogic luci-app-openclash \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
@@ -177,6 +177,9 @@ rebuild_firmware() {
         \
         ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
         iptables-nft arptables-nft ebtables-nft xtables-nft \
+        \
+        ath9k-htc-firmware irqbalance kmod-ath kmod-ath9k-common kmod-ath9k-htc wireless-regdb \
+        wpa-supplicant kmod-br-netfilter php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv \
         "
 
     # Rebuild firmware
