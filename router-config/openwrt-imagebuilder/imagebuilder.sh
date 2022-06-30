@@ -179,7 +179,7 @@ rebuild_firmware() {
         iptables-nft arptables-nft ebtables-nft xtables-nft \
         \
         ath9k-htc-firmware irqbalance kmod-ath kmod-ath9k-common kmod-ath9k-htc wireless-regdb \
-        wpa-supplicant kmod-br-netfilter php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv \
+        wpa-supplicant kmod-br-netfilter php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-mbstring iconv \
         "
 
     # Rebuild firmware
