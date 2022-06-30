@@ -134,9 +134,7 @@ adjust_settings() {
 
     # For other files
     # ......
-    sed -i "s|CONFIG_DEFAULT_luci-app-firewall=.*|# CONFIG_DEFAULT_luci-app-firewall is not set|g" .config
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
-    sed -i "s|CONFIG_DEFAULT_firewall4=.*|# CONFIG_DEFAULT_firewall4 is not set|g" .config
 
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
@@ -152,8 +150,8 @@ rebuild_firmware() {
         bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
         lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
-        coreutils-base64 coreutils-nohup kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli iw subversion-client subversion-libs wget nano curl whereis \
+        coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
+        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano curl whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
@@ -167,7 +165,7 @@ rebuild_firmware() {
         \
         luci-theme-material \
         \
-        luci-app-opkg mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
+        luci-app-opkg luci-app-firewall mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
         luci-app-ttyd luci-app-amlogic luci-app-openclash \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
@@ -176,10 +174,11 @@ rebuild_firmware() {
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
         ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
-        iptables-nft arptables-nft ebtables-nft xtables-nft \
         \
-        ath9k-htc-firmware irqbalance kmod-ath kmod-ath9k-common kmod-ath9k-htc wireless-regdb \
-        wpa-supplicant kmod-br-netfilter php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-mbstring iconv \
+        ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc kmod-cfg80211 \
+        kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
+        \
+        php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-json \
         "
 
     # Rebuild firmware
