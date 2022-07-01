@@ -178,7 +178,7 @@ rebuild_firmware() {
         ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc kmod-cfg80211 \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
         \
-        php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-json \
+        php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-json git git-http \
         "
 
     # Rebuild firmware
