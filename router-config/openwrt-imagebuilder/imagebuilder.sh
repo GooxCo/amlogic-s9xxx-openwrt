@@ -147,26 +147,22 @@ rebuild_firmware() {
     echo -e "${STEPS} Start building OpenWrt with Image Builder..."
     # Selecting packages, lib, theme, app and i18n
     my_packages="\
-        bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
-        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
-        xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
-        coreutils-base64 coreutils-nohup kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget-ssl wget git git-http nano curl whereis \
-        base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
-        ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
-        resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
-        openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
-        liblucihttp-lua ppp cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
+        busybox cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
+		libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
+		luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
+		luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
+		luci-theme-bootstrap px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci \
+		rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
+		ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
+		kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+		kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
+		zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-theme-material \
+		git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap vnstat2 curl ca-certificates \
+		netdata httping coreutils-timeout perl fdisk \
         \
-        luci luci-base luci-lib-base luci-lib-ipkg \
-        luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
-        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
-        luci-proto-ipv6 luci-proto-ppp luci-proto-qmi \
+        luci-lib-ipkg luci-lib-ip luci-proto-3g  luci-proto-ncm \
         \
-        luci-theme-material \
-        \
-        luci-app-opkg luci-app-firewall \
-        luci-app-ttyd luci-app-amlogic luci-app-openclash zram-swap \
+        luci-app-amlogic luci-app-openclash zram-swap \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
@@ -175,7 +171,7 @@ rebuild_firmware() {
         \
         ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
         \
-        php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-json php7-mod-iconv \
+        libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-iconv \
         \
         python-pip-conf python3 python3-asyncio python3-base python3-cgi python3-cgitb python3-codecs python3-ctypes \
         python3-pkg-resources python3-pydoc python3-readline python3-setuptools python3-sqlite3 python3-unittest python3-urllib python3-xml \
