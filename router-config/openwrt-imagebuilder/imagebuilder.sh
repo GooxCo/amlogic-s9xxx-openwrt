@@ -169,7 +169,7 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
+        ruby ruby-yaml ip-full iptables-mod-tproxy iptables-nft iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
         \
         libc php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-mbstring iconv php8-mod-iconv \
         \
