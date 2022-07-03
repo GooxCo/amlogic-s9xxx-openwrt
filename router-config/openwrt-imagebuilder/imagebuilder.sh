@@ -175,7 +175,7 @@ rebuild_firmware() {
         \
         python-pip-conf python3 python3-asyncio python3-base python3-cgi python3-cgitb python3-codecs python3-ctypes \
         python3-pkg-resources python3-pydoc python3-readline python3-setuptools python3-sqlite3 python3-unittest python3-urllib python3-xml \
-        python3-gdbm python3-light python3-logging python3-lzma python3-multiprocessing python3-ncurses python3-openssl python3-pip  \
+        python3-light python3-logging python3-lzma python3-multiprocessing python3-ncurses python3-openssl python3-pip  \
         python3-dbm python3-decimal python3-distutils python3-email \
         "
 
