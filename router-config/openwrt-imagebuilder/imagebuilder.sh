@@ -156,9 +156,9 @@ rebuild_firmware() {
 	ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
 	kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
 	kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
-	zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-theme-material \
-	git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap vnstat2 curl ca-certificates \
-	netdata httping coreutils-timeout perl fdisk \
+	zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar xz xz-utils bash luci-theme-material \
+	git git-http jq luci-app-ttyd ttyd zram-swap vnstat2 curl ca-certificates \
+	netdata httping coreutils-timeout perl fdisk lscpu \
         \
         luci-lib-ipkg luci-lib-ip luci-proto-3g  luci-proto-ncm \
         \
@@ -171,7 +171,7 @@ rebuild_firmware() {
         \
         ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
         \
-        libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-iconv \
+        libc php8 php-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-iconv \
         \
         python-pip-conf python3 python3-asyncio python3-base python3-cgi python3-cgitb python3-codecs python3-ctypes \
         python3-pkg-resources python3-pydoc python3-readline python3-setuptools python3-sqlite3 python3-unittest python3-urllib python3-xml \
