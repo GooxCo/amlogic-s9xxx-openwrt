@@ -148,17 +148,17 @@ rebuild_firmware() {
     # Selecting packages, lib, theme, app and i18n
     my_packages="\
         busybox cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
-		libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
-		luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
-		luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
-		luci-theme-bootstrap px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci \
-		rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
-		ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
-		kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-		kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
-		zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-theme-material \
-		git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap vnstat2 curl ca-certificates \
-		netdata httping coreutils-timeout perl fdisk \
+	libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
+	luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
+	luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
+	luci-theme-bootstrap px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci \
+	rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
+	ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
+	kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+	kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
+	zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-theme-material \
+	git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap vnstat2 curl ca-certificates \
+	netdata httping coreutils-timeout perl fdisk \
         \
         luci-lib-ipkg luci-lib-ip luci-proto-3g  luci-proto-ncm \
         \
