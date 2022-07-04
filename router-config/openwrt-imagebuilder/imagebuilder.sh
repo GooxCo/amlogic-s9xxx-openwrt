@@ -12,11 +12,8 @@
 # Copyright (C) 2021- https://github.com/unifreq/openwrt_packit
 # Copyright (C) 2021- https://github.com/ophub/amlogic-s9xxx-openwrt
 #
-# Download from: https://downloads.openwrt.org/releases
-# Documentation: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
-# Instructions:  Download OpenWrt firmware from the official OpenWrt,
-#                Use Image Builder to add packages, lib, theme, app and i18n, etc.
-#
+# Instructions: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
+# Download options: https://downloads.openwrt.org/releases
 # Command: ./imagebuilder.sh <branch>
 #          ./imagebuilder.sh 21.02.3
 #
@@ -24,10 +21,9 @@
 #
 # error_msg               : Output error message
 # download_imagebuilder   : Downloading OpenWrt ImageBuilder
-# adjust_settings         : Adjust related file settings
 # custom_packages         : Add custom packages
-# custom_config           : Add custom config
 # custom_files            : Add custom files
+# adjust_settings         : Adjust related file settings
 # rebuild_firmware        : rebuild_firmware
 #
 #================================ Set make environment variables ================================
@@ -36,7 +32,6 @@
 make_path="${PWD}"
 imagebuilder_path="${make_path}/openwrt"
 custom_files_path="${make_path}/router-config/openwrt-imagebuilder/files"
-config_file_path="${make_path}/router-config/openwrt-imagebuilder/.config"
 # Set default parameters
 STEPS="[\033[95m STEPS \033[0m]"
 INFO="[\033[94m INFO \033[0m]"
@@ -69,28 +64,6 @@ download_imagebuilder() {
     echo -e "${INFO} [ ${make_path} ] directory status: $(ls . -l 2>/dev/null)"
 }
 
-# Adjust related files in the ImageBuilder directory
-adjust_settings() {
-    cd ${imagebuilder_path}
-
-    # For .config file
-    [[ -s ".config" ]] && {
-        echo -e "${STEPS} Start adjusting .config file settings..."
-        # Root filesystem archives
-        sed -i "s|CONFIG_TARGET_ROOTFS_CPIOGZ=.*|# CONFIG_TARGET_ROOTFS_CPIOGZ is not set|g" .config
-        # Root filesystem images
-        sed -i "s|CONFIG_TARGET_ROOTFS_EXT4FS=.*|# CONFIG_TARGET_ROOTFS_EXT4FS is not set|g" .config
-        sed -i "s|CONFIG_TARGET_ROOTFS_SQUASHFS=.*|# CONFIG_TARGET_ROOTFS_SQUASHFS is not set|g" .config
-        sed -i "s|CONFIG_TARGET_IMAGES_GZIP=.*|# CONFIG_TARGET_IMAGES_GZIP is not set|g" .config
-    }
-
-    # For other files
-    # ......
-
-    sync && sleep 3
-    echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
-}
-
 # Add custom packages
 # If there is a custom package or ipk you would prefer to use create a [ packages ] directory,
 # If one does not exist and place your custom ipk within this directory.
@@ -113,7 +86,8 @@ custom_packages() {
     amlogic_i18n_down="$(curl -s ${amlogic_api} | grep "browser_download_url" | grep -oE "https.*${amlogic_i18n}.*.ipk" | head -n 1)"
     wget -q ${amlogic_i18n_down} -O packages/${amlogic_i18n_down##*/}
     [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_i18n} ] is downloaded successfully."
-	# Download other luci-app-openclash
+
+    # Download other luci-app-openclash
     # 
     openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
     #
@@ -121,23 +95,9 @@ custom_packages() {
     openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
     wget -q ${openclash_file_down} -O packages/${openclash_file_down##*/}
     [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${openclash_file} ] is downloaded successfully."
-    # Download other luci-app-xxx
-    # ......
 
     sync && sleep 3
     echo -e "${INFO} [ packages ] directory status: $(ls packages -l 2>/dev/null)"
-}
-
-# Add custom packages, lib, theme, app and i18n, etc.
-custom_config() {
-    echo -e "${STEPS} Start adding custom config..."
-
-    config_list=""
-    [[ -s "${config_file_path}" ]] && {
-        config_list="$(cat ${config_file_path} 2>/dev/null | grep -E "^CONFIG_PACKAGE_.*=y" | sed -e 's/CONFIG_PACKAGE_//g' -e 's/=y//g' -e 's/[ ][ ]*//g' | tr '\n' ' ')"
-    }
-
-    echo -e "${INFO} Custom config list: \n$(echo "${config_list}" | tr ' ' '\n')"
 }
 
 # Add custom files
@@ -157,30 +117,56 @@ custom_files() {
     }
 }
 
+# Adjust related files in the ImageBuilder directory
+adjust_settings() {
+    cd ${imagebuilder_path}
+
+    # For .config file
+    [[ -s ".config" ]] && {
+        echo -e "${STEPS} Start adjusting .config file settings..."
+        # Root filesystem archives
+        sed -i "s|CONFIG_TARGET_ROOTFS_CPIOGZ=.*|# CONFIG_TARGET_ROOTFS_CPIOGZ is not set|g" .config
+        # Root filesystem images
+        sed -i "s|CONFIG_TARGET_ROOTFS_EXT4FS=.*|# CONFIG_TARGET_ROOTFS_EXT4FS is not set|g" .config
+        sed -i "s|CONFIG_TARGET_ROOTFS_SQUASHFS=.*|# CONFIG_TARGET_ROOTFS_SQUASHFS is not set|g" .config
+        sed -i "s|CONFIG_TARGET_IMAGES_GZIP=.*|# CONFIG_TARGET_IMAGES_GZIP is not set|g" .config
+    }
+
+    # For other files
+    # ......
+    sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
+
+    sync && sleep 3
+    echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
+}
+
 # Rebuild OpenWrt firmware
 rebuild_firmware() {
     cd ${imagebuilder_path}
 
     echo -e "${STEPS} Start building OpenWrt with Image Builder..."
-    # Selecting default packages, lib, theme, app and i18n, etc.
+    # Selecting packages, lib, theme, app and i18n
     my_packages="\
         bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
         lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
         coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs nano wget wget-ssl git git-http curl whereis \
+        hostapd-common wpa-cli iw subversion-client subversion-libs wget nano curl whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
         openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
-        liblucihttp-lua ppp cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
+        liblucihttp-lua ppp ppp-mod-pppoe cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
         \
         luci luci-base luci-lib-base luci-lib-ipkg \
         luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
         luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
-        luci-proto-ipv6 luci-proto-ppp luci-proto-qmi luci-proto-relay \
+        luci-proto-ipv6 luci-proto-openconnect luci-proto-ppp luci-proto-qmi \
         \
-        luci-app-amlogic luci-app-openclash zram-swap \
+        luci-theme-material \
+        \
+        luci-app-opkg luci-app-firewall mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
+        luci-app-ttyd luci-app-amlogic luci-app-openclash \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
@@ -189,14 +175,10 @@ rebuild_firmware() {
         \
         ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
         \
-        libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-iconv php7-mod-json \
+        ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc kmod-cfg80211 \
+        kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
         \
-        python-pip-conf python3 python3-asyncio python3-base python3-cgi python3-cgitb python3-codecs python3-ctypes \
-        python3-pkg-resources python3-pydoc python3-readline python3-setuptools python3-sqlite3 python3-unittest python3-urllib python3-xml \
-        python3-light python3-logging python3-lzma python3-multiprocessing python3-ncurses python3-openssl python3-pip  \
-        python3-dbm python3-decimal python3-distutils python3-email \
-        \
-        ${config_list} \
+        php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-json git git-http \
         "
 
     # Rebuild firmware
@@ -217,10 +199,9 @@ echo -e "${INFO} Rebuild branch: [ ${rebuild_branch} ]"
 #
 # Perform related operations
 download_imagebuilder
-adjust_settings
 custom_packages
-custom_config
 custom_files
+adjust_settings
 rebuild_firmware
 #
 # Show server end information
