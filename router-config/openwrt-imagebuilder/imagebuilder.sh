@@ -86,7 +86,7 @@ adjust_settings() {
 
     # For other files
     # ......
-	sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
+    sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
@@ -114,7 +114,7 @@ custom_packages() {
     wget -q ${amlogic_i18n_down} -O packages/${amlogic_i18n_down##*/}
     [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_i18n} ] is downloaded successfully."
 
-	# Download other luci-app-openclash
+    # Download other luci-app-openclash
     # 
     openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
     #
