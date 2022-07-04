@@ -147,7 +147,7 @@ rebuild_firmware() {
     echo -e "${STEPS} Start building OpenWrt with Image Builder..."
     # Selecting packages, lib, theme, app and i18n
     my_packages="\
-        busybox cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
+        busybox perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
 	libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
 	luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
 	luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
@@ -158,7 +158,8 @@ rebuild_firmware() {
 	kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
 	zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar xz xz-utils bash luci-theme-material \
 	git git-http jq luci-app-ttyd ttyd zram-swap vnstat2 curl ca-certificates \
-	netdata httping coreutils-timeout perl fdisk lscpu \
+	netdata httping coreutils-timeout perl fdisk lscpu wwan mount-utils openssl-util tune2fs subversion-client coremark uclient-fetch \
+        base-files libjson-script uqmi whereis \
         \
         luci-lib-ipkg luci-lib-ip luci-proto-3g luci-proto-ncm \
         \
