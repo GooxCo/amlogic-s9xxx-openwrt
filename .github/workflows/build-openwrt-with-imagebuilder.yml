@@ -70,7 +70,7 @@ on:
 
 env:
   TZ: Asia/Jakarta
-  IMAGEBUILDER_SH: router-config/openwrt-imagebuilder/imagebuilder.sh
+  IMAGEBUILDER_SH: router-config/openwrt-imagebuilder/new.sh
 
 jobs:
   build:
