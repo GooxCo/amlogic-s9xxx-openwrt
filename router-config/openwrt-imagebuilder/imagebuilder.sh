@@ -167,7 +167,7 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     my_packages="\
         bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
-        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools ftune2fs 2fsck lsattr mkf2fs \
+        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools tune2fs 2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
         coreutils-base64 coreutils-nohup kmod-cfg80211 kmod-mac80211 \
         hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano git git-http curl whereis \
