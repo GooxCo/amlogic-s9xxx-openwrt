@@ -167,9 +167,9 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     my_packages="\
         bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
-        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
+        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools ftune2fs 2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
-        coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
+        coreutils-base64 coreutils-nohup kmod-cfg80211 kmod-mac80211 \
         hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano git git-http curl whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
@@ -187,7 +187,7 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        luci-app-amlogic luci-app-openclash -dnsmasq ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates \
+        luci-app-amlogic luci-app-openclash -dnsmasq ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra iptables-mod-conntrack-extra iptables-mod-ipopt libcap-bin ca-certificates \
         \
         libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-iconv php7-mod-json \
         \
@@ -195,6 +195,24 @@ rebuild_firmware() {
         python3-pkg-resources python3-pydoc python3-readline python3-setuptools python3-sqlite3 python3-unittest python3-urllib python3-xml \
         python3-light python3-logging python3-lzma python3-multiprocessing python3-ncurses python3-openssl python3-pip  \
         python3-dbm python3-decimal python3-distutils python3-email \
+        \
+        fstools fwtool getdns getrandom ca-bundle glib2 htop httping ip-full \
+        \
+        kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
+        kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+        kmod-fs-btrfs kmod-ip6tables kmod-ipt-conntrack kmod-ipt-conntrack-extra \
+        kmod-ipt-core kmod-ipt-extra kmod-ipt-ipopt kmod-ipt-ipset kmod-ipt-nat \
+        kmod-ipt-offload kmod-ipt-raw kmod-ipt-tproxy kmod-lib-crc-ccitt kmod-lib-crc32c \
+        kmod-lib-lzo kmod-lib-raid6 kmod-lib-xor kmod-lib-zlib-deflate \
+        kmod-lib-zlib-inflate kmod-lib-zstd kmod-libphy kmod-mii \
+        kmod-nf-conntrack kmod-nf-conntrack-netlink kmod-nf-conntrack6 \
+        kmod-nf-flow kmod-nf-ipt kmod-nf-ipt6 kmod-nf-nat kmod-nf-reject \
+        kmod-nf-reject6 kmod-nfnetlink kmod-nls-base kmod-ppp kmod-slhc \
+        kmod-tun kmod-zram zram-swap libsodium px5g-wolfssl \
+        \
+        rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
+        uuidgen ubus ubox ubusd uci procd procps-ng procps-ng-ps \
+        openssh-client openssh-sftp-server openssl-util minicom \
         \
         ${config_list} \
         "
