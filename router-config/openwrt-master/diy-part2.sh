@@ -21,6 +21,12 @@ echo "DISTRIB_SOURCECODE='openwrt.master'" >>package/base-files/files/etc/openwr
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
 sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generate
 
+# change ssid
+sed -i "s/OpenWrt/JJ-NET/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i "s/iw /ipconfig /g" package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh
+# change hostname
+sed -i "s/OpenWrt/JJCOFFEE/g" package/base-files/files/bin/config_generate
+
 #
 # ------------------------------- Main source ends -------------------------------
 
