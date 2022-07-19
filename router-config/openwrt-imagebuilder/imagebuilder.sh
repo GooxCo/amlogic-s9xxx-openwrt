@@ -208,7 +208,7 @@ rebuild_firmware() {
         kmod-nf-conntrack kmod-nf-conntrack-netlink kmod-nf-conntrack6 \
         kmod-nf-flow kmod-nf-ipt kmod-nf-ipt6 kmod-nf-nat kmod-nf-reject \
         kmod-nf-reject6 kmod-nfnetlink kmod-nls-base kmod-ppp kmod-slhc \
-        kmod-tun kmod-zram zram-swap libsodium px5g-wolfssl \
+        kmod-tun kmod-zram zram-swap libsodium \
         \
         rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
         uuidgen ubus ubox ubusd uci procd procps-ng procps-ng-ps \
