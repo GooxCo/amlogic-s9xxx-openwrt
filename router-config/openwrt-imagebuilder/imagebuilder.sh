@@ -189,7 +189,7 @@ rebuild_firmware() {
         \
         luci-app-amlogic luci-app-openclash -dnsmasq ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra iptables-mod-conntrack-extra iptables-mod-ipopt libcap-bin ca-certificates \
         \
-        libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-mbstring iconv php7-mod-iconv php7-mod-json \
+        libc php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-mbstring iconv php8-mod-iconv php8-mod-zip \
         \
         python-pip-conf python3 python3-asyncio python3-base python3-cgi python3-cgitb python3-codecs python3-ctypes \
         python3-pkg-resources python3-pydoc python3-readline python3-setuptools python3-sqlite3 python3-unittest python3-urllib python3-xml \
