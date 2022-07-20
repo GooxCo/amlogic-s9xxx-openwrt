@@ -163,17 +163,17 @@ rebuild_firmware() {
         coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
         hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget curl whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
-        ziptool zstd iconv jq docker docker-compose dockerd containerd dumpe2fs e2freefrag exfat-mkfs \
+        ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
         openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
-        liblucihttp-lua ppp ppp-mod-pppoe proto-bonding cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
+        liblucihttp-lua ppp cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
         \
-        luci luci-base luci-lib-base luci-i18n-base-en luci-i18n-base-zh-cn luci-lib-ipkg luci-lib-docker \
+        luci luci-base luci-lib-base luci-lib-ipkg \
         luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
         luci-mod-admin-full luci-compat luci-proto-3g luci-proto-bonding luci-proto-ipip luci-proto-ncm \
-        luci-proto-ipv6 luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay \
+        luci-proto-ipv6 luci-proto-openconnect luci-proto-ppp luci-proto-qmi \
         \
-        luci-app-amlogic luci-i18n-amlogic-zh-cn \
+        luci-app-amlogic \
         \
         ${config_list} \
         "
