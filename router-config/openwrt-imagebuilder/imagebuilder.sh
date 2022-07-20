@@ -189,14 +189,7 @@ rebuild_firmware() {
         \
         luci-app-amlogic luci-app-openclash -dnsmasq ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra iptables-mod-conntrack-extra iptables-mod-ipopt libcap-bin ca-certificates \
         \
-        libc php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-mbstring iconv php8-mod-iconv php8-mod-zip \
-        \
-        python-pip-conf python3 python3-asyncio python3-base python3-cgi python3-cgitb python3-codecs python3-ctypes \
-        python3-pkg-resources python3-pydoc python3-readline python3-setuptools python3-sqlite3 python3-unittest python3-urllib python3-xml \
-        python3-light python3-logging python3-lzma python3-multiprocessing python3-ncurses python3-openssl python3-pip  \
-        python3-dbm python3-decimal python3-distutils python3-email \
-        \
-        fstools fwtool getdns getrandom ca-bundle glib2 htop httping ip-full \
+        php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-mbstring iconv php8-mod-iconv php8-mod-zip \
         \
         kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
@@ -208,11 +201,11 @@ rebuild_firmware() {
         kmod-nf-conntrack kmod-nf-conntrack-netlink kmod-nf-conntrack6 \
         kmod-nf-flow kmod-nf-ipt kmod-nf-ipt6 kmod-nf-nat kmod-nf-reject \
         kmod-nf-reject6 kmod-nfnetlink kmod-nls-base kmod-ppp kmod-slhc \
-        kmod-tun kmod-zram zram-swap libsodium \
+        zram-swap \
         \
         rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
         uuidgen ubus ubox ubusd uci procd procps-ng procps-ng-ps \
-        openssh-client openssh-sftp-server openssl-util minicom \
+        openssh-client openssh-sftp-server openssl-util \
         \
         ${config_list} \
         "
