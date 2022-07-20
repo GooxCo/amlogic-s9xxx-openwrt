@@ -170,7 +170,7 @@ rebuild_firmware() {
         lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools tune2fs f2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
         coreutils-base64 coreutils-nohup kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano git curl whereis \
+        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano git git-http curl whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
@@ -188,24 +188,6 @@ rebuild_firmware() {
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
         luci-app-amlogic luci-app-openclash -dnsmasq ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra iptables-mod-conntrack-extra iptables-mod-ipopt libcap-bin ca-certificates \
-        \
-        php8 php8-cgi php8-mod-session php8-mod-ctype php8-mod-fileinfo php8-mod-mbstring iconv php8-mod-iconv php8-mod-zip \
-        \
-        kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
-        kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        kmod-fs-btrfs kmod-ip6tables kmod-ipt-conntrack kmod-ipt-conntrack-extra \
-        kmod-ipt-core kmod-ipt-extra kmod-ipt-ipopt kmod-ipt-ipset kmod-ipt-nat \
-        kmod-ipt-offload kmod-ipt-raw kmod-ipt-tproxy kmod-lib-crc-ccitt kmod-lib-crc32c \
-        kmod-lib-lzo kmod-lib-raid6 kmod-lib-xor kmod-lib-zlib-deflate \
-        kmod-lib-zlib-inflate kmod-lib-zstd kmod-libphy kmod-mii \
-        kmod-nf-conntrack kmod-nf-conntrack-netlink kmod-nf-conntrack6 \
-        kmod-nf-flow kmod-nf-ipt kmod-nf-ipt6 kmod-nf-nat kmod-nf-reject \
-        kmod-nf-reject6 kmod-nfnetlink kmod-nls-base kmod-ppp kmod-slhc \
-        zram-swap \
-        \
-        rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
-        uuidgen ubus ubox ubusd uci procd procps-ng procps-ng-ps \
-        openssh-client openssh-sftp-server openssl-util \
         \
         ${config_list} \
         "
