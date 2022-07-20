@@ -86,7 +86,7 @@ adjust_settings() {
 
     # For other files
     # ......
-    sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
+
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
@@ -113,15 +113,6 @@ custom_packages() {
     amlogic_i18n_down="$(curl -s ${amlogic_api} | grep "browser_download_url" | grep -oE "https.*${amlogic_i18n}.*.ipk" | head -n 1)"
     wget -q ${amlogic_i18n_down} -O packages/${amlogic_i18n_down##*/}
     [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_i18n} ] is downloaded successfully."
-
-    # Download other luci-app-openclash
-    # 
-    openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
-    #
-    openclash_file="luci-app-openclash"
-    openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
-    wget -q ${openclash_file_down} -O packages/${openclash_file_down##*/}
-    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${openclash_file} ] is downloaded successfully."
 
     # Download other luci-app-xxx
     # ......
@@ -167,27 +158,22 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     my_packages="\
         bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
-        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools tune2fs f2fsck lsattr mkf2fs \
+        lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
-        coreutils-base64 coreutils-nohup kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano git git-http curl whereis \
+        coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
+        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget curl whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
-        ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
+        ziptool zstd iconv jq docker docker-compose dockerd containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
         openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
-        liblucihttp-lua ppp cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
+        liblucihttp-lua ppp ppp-mod-pppoe proto-bonding cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
         \
-        luci luci-base luci-lib-base luci-lib-ipkg \
+        luci luci-base luci-lib-base luci-i18n-base-en luci-i18n-base-zh-cn luci-lib-ipkg luci-lib-docker \
         luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
-        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
-        luci-proto-ipv6 luci-proto-ppp luci-proto-qmi luci-proto-relay \
+        luci-mod-admin-full luci-compat luci-proto-3g luci-proto-bonding luci-proto-ipip luci-proto-ncm \
+        luci-proto-ipv6 luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay \
         \
-        kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
-        kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
-        kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
-        kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
-        \
-        luci-app-amlogic luci-app-openclash -dnsmasq ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra iptables-mod-conntrack-extra iptables-mod-ipopt libcap-bin ca-certificates \
+        luci-app-amlogic luci-i18n-amlogic-zh-cn \
         \
         ${config_list} \
         "
