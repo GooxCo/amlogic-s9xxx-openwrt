@@ -191,7 +191,7 @@ rebuild_firmware() {
         \
         libiwinfo-lua liblua lua libiwinfo-data libubus-lua luci-ssl \
         px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
-        ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-commo kmod-ath9k-htc \
+        ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client openssl-util \
         zram-swap httping netdata coreutils-timeout perl px5g-wolfssl \
