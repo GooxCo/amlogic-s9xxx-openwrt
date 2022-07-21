@@ -170,7 +170,7 @@ rebuild_firmware() {
         lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
         coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs whereis \
+        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs nano wget curl git git-http whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
@@ -189,6 +189,12 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
+        libiwinfo-lua liblua lua libiwinfo-data libubus-lua luci-ssl \
+        px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
+        ath9k-htc-firmware hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-commo kmod-ath9k-htc \
+        kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+        kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client openssl-util \
+        zram-swap httping netdata coreutils-timeout perl \
         ${config_list} \
         "
 
