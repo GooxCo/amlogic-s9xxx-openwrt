@@ -174,6 +174,7 @@ rebuild_firmware() {
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
         ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
+        ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-commo kmod-ath9k-htc kmod-fs-btrfs \
         "
 
     # Rebuild firmware
