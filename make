@@ -528,6 +528,10 @@ EOF
     echo "panfrost" >etc/modules.d/panfrost
     # PWM Driver
     echo "pwm_meson" >etc/modules.d/pwm_meson
+    # Ath10k Driver
+    echo "ath10k_core" >etc/modules.d/ath10k_core
+    echo "ath10k_sdio" >etc/modules.d/ath10k_sdio
+    echo "ath10k_usb" >etc/modules.d/ath10k_usb
 
     # Relink the kmod program
     [[ -x "sbin/kmod" ]] && (
@@ -577,7 +581,7 @@ EOF
         op_production_date=$(date +%Y-%m-%d)
         echo " Install OpenWrt: System → Amlogic Service → Install OpenWrt" >>etc/banner
         echo " Update  OpenWrt: System → Amlogic Service → Online  Update" >>etc/banner
-        echo " OpenWrt  Kernel: ${op_version}  |  Amlogic SoC: ${soc}" >>etc/banner
+        echo " Amlogic Box SoC: ${soc} | OpenWrt Kernel: ${op_version}" >>etc/banner
         echo " Production Date: ${op_production_date}" >>etc/banner
         echo "───────────────────────────────────────────────────────────────────────" >>etc/banner
     fi
