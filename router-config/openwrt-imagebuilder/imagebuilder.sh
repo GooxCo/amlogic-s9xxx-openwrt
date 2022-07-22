@@ -170,7 +170,7 @@ rebuild_firmware() {
         lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
         coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs nano wget curl git git-http whereis \
+        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs nano whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
@@ -193,8 +193,8 @@ rebuild_firmware() {
         px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
         ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client openssl-util \
-        zram-swap httping netdata coreutils-timeout perl px5g-wolfssl \
+        kmod-fs-btrfs htop libmbedtls ca-certificates \
+        zram-swap httping netdata coreutils-timeout perl ca-bundle libustream-wolfssl \
         ${config_list} \
         "
 
