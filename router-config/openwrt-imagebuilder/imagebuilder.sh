@@ -12,18 +12,22 @@
 # Copyright (C) 2021- https://github.com/unifreq/openwrt_packit
 # Copyright (C) 2021- https://github.com/ophub/amlogic-s9xxx-openwrt
 #
-# Instructions: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
-# Download options: https://downloads.openwrt.org/releases
-# Command: ./imagebuilder.sh <branch>
-#          ./imagebuilder.sh 21.02.3
+# Download from: https://downloads.openwrt.org/releases
+# Documentation: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
+# Instructions:  Download OpenWrt firmware from the official OpenWrt,
+#                Use Image Builder to add packages, lib, theme, app and i18n, etc.
+#
+# Command: ./router-config/openwrt-imagebuilder/imagebuilder.sh <branch>
+#          ./router-config/openwrt-imagebuilder/imagebuilder.sh 21.02.3
 #
 #======================================== Functions list ========================================
 #
 # error_msg               : Output error message
 # download_imagebuilder   : Downloading OpenWrt ImageBuilder
-# custom_packages         : Add custom packages
-# custom_files            : Add custom files
 # adjust_settings         : Adjust related file settings
+# custom_packages         : Add custom packages
+# custom_config           : Add custom config
+# custom_files            : Add custom files
 # rebuild_firmware        : rebuild_firmware
 #
 #================================ Set make environment variables ================================
@@ -32,6 +36,7 @@
 make_path="${PWD}"
 imagebuilder_path="${make_path}/openwrt"
 custom_files_path="${make_path}/router-config/openwrt-imagebuilder/files"
+config_file_path="${make_path}/router-config/openwrt-imagebuilder/.config"
 # Set default parameters
 STEPS="[\033[95m STEPS \033[0m]"
 INFO="[\033[94m INFO \033[0m]"
@@ -64,59 +69,6 @@ download_imagebuilder() {
     echo -e "${INFO} [ ${make_path} ] directory status: $(ls . -l 2>/dev/null)"
 }
 
-# Add custom packages
-# If there is a custom package or ipk you would prefer to use create a [ packages ] directory,
-# If one does not exist and place your custom ipk within this directory.
-custom_packages() {
-    cd ${imagebuilder_path}
-
-    echo -e "${STEPS} Start adding custom packages..."
-    # Create a [ packages ] directory
-    [[ -d "packages" ]] || mkdir packages
-
-    # Download luci-app-amlogic
-    amlogic_api="https://api.github.com/repos/ophub/luci-app-amlogic/releases"
-    #
-    amlogic_file="luci-app-amlogic"
-    amlogic_file_down="$(curl -s ${amlogic_api} | grep "browser_download_url" | grep -oE "https.*${amlogic_name}.*.ipk" | head -n 1)"
-    wget -q ${amlogic_file_down} -O packages/${amlogic_file_down##*/}
-    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_file} ] is downloaded successfully."
-    #
-    amlogic_i18n="luci-i18n-amlogic"
-    amlogic_i18n_down="$(curl -s ${amlogic_api} | grep "browser_download_url" | grep -oE "https.*${amlogic_i18n}.*.ipk" | head -n 1)"
-    wget -q ${amlogic_i18n_down} -O packages/${amlogic_i18n_down##*/}
-    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_i18n} ] is downloaded successfully."
-
-    # Download other luci-app-openclash
-    # 
-    openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
-    #
-    openclash_file="luci-app-openclash"
-    openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
-    wget -q ${openclash_file_down} -O packages/${openclash_file_down##*/}
-    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${openclash_file} ] is downloaded successfully."
-
-    sync && sleep 3
-    echo -e "${INFO} [ packages ] directory status: $(ls packages -l 2>/dev/null)"
-}
-
-# Add custom files
-# The FILES variable allows custom configuration files to be included in images built with Image Builder.
-# The [ files ] directory should be placed in the Image Builder root directory where you issue the make command.
-custom_files() {
-    cd ${imagebuilder_path}
-
-    [[ -d "${custom_files_path}" ]] && {
-        echo -e "${STEPS} Start adding custom files..."
-        # Copy custom files
-        [[ -d "files" ]] || mkdir -p files
-        cp -rf ${custom_files_path}/* files
-
-        sync && sleep 3
-        echo -e "${INFO} [ files ] directory status: $(ls files -l 2>/dev/null)"
-    }
-}
-
 # Adjust related files in the ImageBuilder directory
 adjust_settings() {
     cd ${imagebuilder_path}
@@ -140,41 +92,110 @@ adjust_settings() {
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
 
+# Add custom packages
+# If there is a custom package or ipk you would prefer to use create a [ packages ] directory,
+# If one does not exist and place your custom ipk within this directory.
+custom_packages() {
+    cd ${imagebuilder_path}
+
+    echo -e "${STEPS} Start adding custom packages..."
+    # Create a [ packages ] directory
+    [[ -d "packages" ]] || mkdir packages
+
+    # Download luci-app-amlogic
+    amlogic_api="https://api.github.com/repos/ophub/luci-app-amlogic/releases"
+    #
+    amlogic_file="luci-app-amlogic"
+    amlogic_file_down="$(curl -s ${amlogic_api} | grep "browser_download_url" | grep -oE "https.*${amlogic_name}.*.ipk" | head -n 1)"
+    wget -q ${amlogic_file_down} -O packages/${amlogic_file_down##*/}
+    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_file} ] is downloaded successfully."
+    #
+    amlogic_i18n="luci-i18n-amlogic"
+    amlogic_i18n_down="$(curl -s ${amlogic_api} | grep "browser_download_url" | grep -oE "https.*${amlogic_i18n}.*.ipk" | head -n 1)"
+    wget -q ${amlogic_i18n_down} -O packages/${amlogic_i18n_down##*/}
+    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_i18n} ] is downloaded successfully."
+
+    # Download other luci-app-xxx
+    # ......
+    # Download other luci-app-openclash
+    # 
+    openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
+    #
+    openclash_file="luci-app-openclash"
+    openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
+    wget -q ${openclash_file_down} -O packages/${openclash_file_down##*/}
+    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${openclash_file} ] is downloaded successfully."
+
+    sync && sleep 3
+    echo -e "${INFO} [ packages ] directory status: $(ls packages -l 2>/dev/null)"
+}
+
+# Add custom packages, lib, theme, app and i18n, etc.
+custom_config() {
+    echo -e "${STEPS} Start adding custom config..."
+
+    config_list=""
+    [[ -s "${config_file_path}" ]] && {
+        config_list="$(cat ${config_file_path} 2>/dev/null | grep -E "^CONFIG_PACKAGE_.*=y" | sed -e 's/CONFIG_PACKAGE_//g' -e 's/=y//g' -e 's/[ ][ ]*//g' | tr '\n' ' ')"
+    }
+
+    echo -e "${INFO} Custom config list: \n$(echo "${config_list}" | tr ' ' '\n')"
+}
+
+# Add custom files
+# The FILES variable allows custom configuration files to be included in images built with Image Builder.
+# The [ files ] directory should be placed in the Image Builder root directory where you issue the make command.
+custom_files() {
+    cd ${imagebuilder_path}
+
+    [[ -d "${custom_files_path}" ]] && {
+        echo -e "${STEPS} Start adding custom files..."
+        # Copy custom files
+        [[ -d "files" ]] || mkdir -p files
+        cp -rf ${custom_files_path}/* files
+
+        sync && sleep 3
+        echo -e "${INFO} [ files ] directory status: $(ls files -l 2>/dev/null)"
+    }
+}
+
 # Rebuild OpenWrt firmware
 rebuild_firmware() {
     cd ${imagebuilder_path}
 
     echo -e "${STEPS} Start building OpenWrt with Image Builder..."
-    # Selecting packages, lib, theme, app and i18n
+    # Selecting default packages, lib, theme, app and i18n, etc.
     my_packages="\
         bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
         lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
         xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
         coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs wget nano curl whereis \
+        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs nano wget curl git git-http whereis \
         base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
         openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
-        liblucihttp-lua ppp ppp-mod-pppoe cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
+        liblucihttp-lua ppp cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
         \
         luci luci-base luci-lib-base luci-lib-ipkg \
         luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-network luci-mod-status luci-mod-system \
         luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
-        luci-proto-ipv6 luci-proto-openconnect luci-proto-ppp luci-proto-qmi \
+        luci-proto-ipv6 luci-proto-ppp luci-proto-qmi \
         \
-        luci-theme-material \
-        \
-        luci-app-opkg luci-app-firewall mwan3 luci-app-mwan3 https-dns-proxy luci-app-https-dns-proxy \
-        luci-app-ttyd luci-app-amlogic luci-app-openclash \
+        luci-app-amlogic luci-app-openclash -dnsmasq \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        ruby ruby-yaml ip-full iptables-mod-tproxy iptables-mod-extra libcap-bin ca-certificates dnsmasq-full -dnsmasq \
-        ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-commo kmod-ath9k-htc kmod-fs-btrfs \
+        libiwinfo-lua liblua lua libiwinfo-data libubus-lua luci-ssl \
+        px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
+        ath9k-htc-firmware hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-commo kmod-ath9k-htc \
+        kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+        kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client openssl-util \
+        zram-swap httping netdata coreutils-timeout perl \
+        ${config_list} \
         "
 
     # Rebuild firmware
@@ -195,9 +216,10 @@ echo -e "${INFO} Rebuild branch: [ ${rebuild_branch} ]"
 #
 # Perform related operations
 download_imagebuilder
-custom_packages
-custom_files
 adjust_settings
+custom_packages
+custom_config
+custom_files
 rebuild_firmware
 #
 # Show server end information
