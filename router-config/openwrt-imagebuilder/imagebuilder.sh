@@ -194,7 +194,7 @@ rebuild_firmware() {
         ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs htop libmbedtls ca-certificates \
-        zram-swap httping netdata coreutils-timeout perl ca-bundle libustream-wolfssl \
+        zram-swap httping netdata coreutils-timeout perl ca-bundle -libcurl4 \
         ${config_list} \
         "
 
