@@ -182,7 +182,7 @@ rebuild_firmware() {
         luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
         luci-proto-ipv6 luci-proto-ppp luci-proto-qmi \
         \
-        luci-app-amlogic luci-app-openclash -dnsmasq \
+        luci-app-amlogic -dnsmasq \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
