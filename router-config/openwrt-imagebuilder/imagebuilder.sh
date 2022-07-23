@@ -194,7 +194,8 @@ rebuild_firmware() {
         ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-commo kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client \
-        zram-swap httping netdata coreutils-timeout perl \
+        zram-swap httping netdata coreutils-timeout perl netdata vnstat2 \
+        libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-zip php7-mod-iconv php7-mod-mbstring php7-mod-json \
         ${config_list} \
         "
 
