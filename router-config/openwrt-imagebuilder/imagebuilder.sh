@@ -168,13 +168,13 @@ rebuild_firmware() {
     my_packages="\
         bash perl-http-date perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 blkid fdisk \
         lsblk parted attr btrfs-progs chattr dosfstools e2fsprogs f2fs-tools f2fsck lsattr mkf2fs \
-        xfs-fsck xfs-mkfs bash gawk getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
+        xfs-fsck xfs-mkfs bash getopt losetup pv uuidgen coremark coreutils uclient-fetch wwan \
         coreutils-base64 coreutils-nohup kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 \
-        hostapd-common wpa-cli wpad-basic iw subversion-client subversion-libs nano wget curl git git-http whereis \
-        base-files bind-server block-mount blockd busybox usb-modeswitch tini lscpu mount-utils \
+        hostapd-common wpa-cli wpad-basic iw nano whereis \
+        base-files block-mount blockd busybox usb-modeswitch lscpu mount-utils \
         ziptool zstd iconv jq containerd dumpe2fs e2freefrag exfat-mkfs \
         resize2fs tune2fs ttyd zoneinfo-asia zoneinfo-core bc iwinfo jshn libjson-script libnetwork \
-        openssl-util rename runc which liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
+        liblucihttp bsdtar pigz gzip bzip2 unzip xz-utils xz tar \
         liblucihttp-lua ppp cgi-io uhttpd uhttpd-mod-ubus comgt comgt-ncm uqmi \
         \
         luci luci-base luci-lib-base luci-lib-ipkg \
@@ -189,12 +189,12 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        libiwinfo-lua liblua lua libiwinfo-data libubus-lua luci-ssl \
-        px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
+        libiwinfo-lua liblua lua libiwinfo-data libubus-lua \
+        rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
         ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client openssl-util \
-        zram-swap httping netdata coreutils-timeout perl -libustream-wolfssl \
+        kmod-fs-btrfs \
+        zram-swap netdata coreutils-timeout \
         ${config_list} \
         "
 
