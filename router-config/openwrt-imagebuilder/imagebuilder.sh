@@ -87,8 +87,7 @@ adjust_settings() {
     # For other files
     # ......
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
-    sed -i "s|CONFIG_DEFAULT_libustream-wolfssl=.*|# CONFIG_DEFAULT_libustream-wolfssl is not set|g" .config
-    sed -i "s|CONFIG_DEFAULT_libustream-wolfssl20201210=.*|# CONFIG_DEFAULT_libustream-wolfssl20201210 is not set|g" .config
+
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
@@ -175,10 +174,10 @@ rebuild_firmware() {
 		rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
 		ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
 		kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-		kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
-		libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-zip php7-mod-iconv php7-mod-mbstring php7-mod-json \
+		kmod-fs-btrfs kmod-mac80211 \
+		luci-app-openclash -dnsmasq \
 		zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-app-mwan3 luci-theme-material \
-		git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap luci-app-vnstat2 vnstat2 curl ca-certificates \
+		git git-http jq openssh-client openssl-util https-dns-proxy luci-app-ttyd ttyd zram-swap vnstat2 curl ca-certificates \
 		netdata httping coreutils-timeout perl fdisk \
 		kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
 		kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice \
