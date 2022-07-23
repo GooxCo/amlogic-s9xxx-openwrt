@@ -88,7 +88,7 @@ adjust_settings() {
     # ......
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
     sed -i "s|CONFIG_DEFAULT_libustream-wolfssl=.*|# CONFIG_DEFAULT_libustream-wolfssl is not set|g" .config
-
+    sed -i "s|CONFIG_DEFAULT_libustream-wolfssl20201210=.*|# CONFIG_DEFAULT_libustream-wolfssl20201210 is not set|g" .config
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
