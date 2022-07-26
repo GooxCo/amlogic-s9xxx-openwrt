@@ -195,7 +195,7 @@ rebuild_firmware() {
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client \
         zram-swap httping netdata coreutils-timeout perl netdata vnstat2 \
-        libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-zip php7-mod-iconv php7-mod-mbstring php7-mod-json \
+        libc \
         ${config_list} \
         "
 
