@@ -195,7 +195,7 @@ rebuild_firmware() {
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client \
         zram-swap httping netdata coreutils-timeout perl netdata vnstat2 \
-        libc -libwolfssl5.4.0.ee39414e \
+        libc \
         ${config_list} \
         "
 
