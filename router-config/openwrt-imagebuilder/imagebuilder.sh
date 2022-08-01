@@ -190,12 +190,12 @@ rebuild_firmware() {
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
         libiwinfo-lua liblua lua libiwinfo-data libubus-lua \
-        px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
+        rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
         ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client \
         zram-swap httping netdata coreutils-timeout perl netdata vnstat2 \
-        libc \
+        libc -libwolfssl5.4.0.ee39414e \
         ${config_list} \
         "
 
