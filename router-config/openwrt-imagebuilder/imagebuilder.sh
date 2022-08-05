@@ -87,7 +87,9 @@ adjust_settings() {
     # For other files
     # ......
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
-
+    sed -i "s|CONFIG_DEFAULT_procd-ujail=.*|# CONFIG_DEFAULT_procd-ujail is not set|g" .config
+    sed -i "s|CONFIG_DEFAULT_firewall4=.*|# CONFIG_DEFAULT_firewall4 is not set|g" .config
+    sed -i "s|CONFIG_DEFAULT_luci-app-firewall=.*|# CONFIG_DEFAULT_luci-app-firewall is not set|g" .config
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
@@ -195,7 +197,7 @@ rebuild_firmware() {
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client \
         zram-swap httping netdata coreutils-timeout perl netdata vnstat2 \
-        libc px5g-wolfssl luci-ssl iptables-nft \
+        libc px5g-wolfssl luci-ssl iptables-nft firewall luci-app-firewall \
         ${config_list} \
         "
 
