@@ -183,7 +183,7 @@ rebuild_firmware() {
         luci-mod-admin-full luci-compat luci-proto-3g luci-proto-ipip luci-proto-ncm \
         luci-proto-ipv6 luci-proto-ppp luci-proto-qmi \
         \
-        luci-app-amlogic \
+        luci-app-amlogic luci-app-openclash -dnsmasq \
         \
         cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
 		libubus-lua lua luci luci-base luci-lib-base \
@@ -191,7 +191,7 @@ rebuild_firmware() {
 		luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl \
 		luci-theme-bootstrap px5g-wolfssl rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci \
 		rpcd-mod-rrdns uhttpd uhttpd-mod-ubus luci-compat \
-		ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
+		ath9k-htc-firmware btrfs-progs hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
 		kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
 		kmod-fs-btrfs kmod-mac80211 \
 		libc php7 php7-cgi php7-mod-session php7-mod-ctype php7-mod-fileinfo php7-mod-zip php7-mod-iconv php7-mod-mbstring php7-mod-json \
