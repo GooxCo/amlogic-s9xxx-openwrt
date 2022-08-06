@@ -197,7 +197,7 @@ rebuild_firmware() {
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client \
         zram-swap httping netdata coreutils-timeout perl netdata vnstat2 \
-        libc px5g-wolfssl luci-ssl -firewall4 -kmod-nft-offload -nftables \
+        libc px5g-wolfssl luci-ssl -firewall4 -kmod-nft-offload -nftables -odhcpd-ipv6only \
         ${config_list} \
         "
 
