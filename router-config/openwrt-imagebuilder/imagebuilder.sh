@@ -87,6 +87,9 @@ adjust_settings() {
     # For other files
     # ......
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
+	sed -i "s|CONFIG_DEFAULT_procd-ujail=.*|# CONFIG_DEFAULT_procd-ujail is not set|g" .config
+    sed -i "s|CONFIG_DEFAULT_firewall4=.*|# CONFIG_DEFAULT_firewall4 is not set|g" .config
+    sed -i "s|CONFIG_DEFAULT_luci-app-firewall=.*|# CONFIG_DEFAULT_luci-app-firewall is not set|g" .config
 
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
@@ -171,14 +174,14 @@ rebuild_firmware() {
         btrfs-progs busybox bzip2 cgi-io chattr comgt comgt-ncm containerd coremark  \
         coreutils coreutils-base64 coreutils-nohup coreutils-truncate curl  \
         dosfstools dumpe2fs e2freefrag e2fsprogs exfat-mkfs  \
-        f2fs-tools f2fsck fdisk gawk getopt git git-http gzip hostapd-common iconv iw iwinfo jq jshn  \
+        f2fs-tools f2fsck fdisk gawk getopt git git-http gzip hostapd hostapd-utils hostapd-common iconv iw iwinfo jq jshn  \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 libjson-script  \
         liblucihttp liblucihttp-lua libnetwork losetup lsattr lsblk lscpu mkf2fs  \
         mount-utils nano openssl-util parted perl-http-date perlbase-file perlbase-getopt  \
         perlbase-time perlbase-unicode perlbase-utf8 pigz ppp ppp-mod-pppoe  \
         proto-bonding pv rename resize2fs runc subversion-client subversion-libs tar  \
         tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch  \
-        uuidgen wget-ssl whereis which wpa-cli wpad-basic wwan xfs-fsck xfs-mkfs xz  \
+        uuidgen wget-ssl whereis which wpa-cli wpa-supplicant wwan xfs-fsck xfs-mkfs xz  \
         xz-utils ziptool zoneinfo-asia zoneinfo-core zstd  \
         \
         luci luci-base luci-compat luci-lib-base  \
