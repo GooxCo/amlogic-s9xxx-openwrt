@@ -201,7 +201,7 @@ rebuild_firmware() {
         rpcd rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-luci rpcd-mod-rrdns \
         ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        kmod-fs-btrfs libc htop libmbedtls ca-certificates openssh-client \
+        kmod-fs-btrfs htop libmbedtls ca-certificates openssh-client \
         zram-swap httping netdata coreutils-timeout perl netdata vnstat2 \
         libc px5g-wolfssl luci-ssl -firewall4 -kmod-nft-offload -nftables -odhcpd-ipv6only \
         boost boost-date_time boost-system boost-program_options minicom rsync coreutils-stdbuf coreutils-stat \
