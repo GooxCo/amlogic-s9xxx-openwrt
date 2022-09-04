@@ -14,7 +14,7 @@ on:
       branch:
         description: "Select the releases branch"
         required: false
-        default: "21.02.3"
+        default: "22.03.0"
         type: choice
         options:
           - 22.03.0-rc6
