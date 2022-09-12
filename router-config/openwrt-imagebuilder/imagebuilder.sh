@@ -87,10 +87,6 @@ adjust_settings() {
     # For other files
     # ......
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
-	sed -i "s|CONFIG_DEFAULT_procd-ujail=.*|# CONFIG_DEFAULT_procd-ujail is not set|g" .config
-    sed -i "s|CONFIG_DEFAULT_firewall4=.*|# CONFIG_DEFAULT_firewall4 is not set|g" .config
-    sed -i "s|CONFIG_DEFAULT_luci-app-firewall=.*|# CONFIG_DEFAULT_luci-app-firewall is not set|g" .config
-
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
@@ -202,8 +198,8 @@ rebuild_firmware() {
         ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         kmod-fs-btrfs htop libmbedtls ca-certificates openssh-client \
-        zram-swap httping netdata coreutils-timeout perl netdata vnstat2 \
-        libc px5g-wolfssl luci-ssl -firewall4 -kmod-nft-offload -nftables -odhcpd-ipv6only \
+        zram-swap httping netdata coreutils-timeout perl \
+        libc px5g-wolfssl luci-ssl \
         boost boost-date_time boost-system boost-program_options minicom rsync coreutils-stdbuf coreutils-stat \
         php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
         \
