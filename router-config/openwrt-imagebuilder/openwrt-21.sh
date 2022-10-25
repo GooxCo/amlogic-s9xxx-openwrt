@@ -201,7 +201,7 @@ rebuild_firmware() {
         zram-swap httping netdata coreutils-timeout perl \
         libc px5g-wolfssl luci-ssl \
         boost boost-date_time boost-system boost-program_options minicom rsync coreutils-stdbuf coreutils-stat \
-        php php-cgi php-mod-ctype php-mod-fileinfo php-mod-gettext php-mod-gmp php-mod-iconv php-mod-mbstring php-mod-pcntl php-mod-session php-mod-zip php-mod-json \
+        \
         \
         ${config_list} \
         "
