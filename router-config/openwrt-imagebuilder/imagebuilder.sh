@@ -201,7 +201,7 @@ rebuild_firmware() {
         zram-swap httping netdata coreutils-timeout perl \
         libc px5g-wolfssl luci-ssl \
         boost boost-date_time boost-system boost-program_options minicom rsync coreutils-stdbuf coreutils-stat \
-        php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
+        php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip kmod-nft-tproxy \
         \
         ${config_list} \
         "
