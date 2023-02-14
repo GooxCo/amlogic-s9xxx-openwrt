@@ -184,7 +184,7 @@ rebuild_firmware() {
         f2fs-tools f2fsck fdisk gawk getopt git git-http gzip hostapd-common iconv iw iwinfo jq jshn \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 libjson-script \
         liblucihttp liblucihttp-lua libnetwork losetup lsattr lsblk lscpu mkf2fs \
-        mount-utils nano ntfs3-mount openssl-util parted perl-http-date perlbase-file \
+        mount-utils nano openssl-util parted perl-http-date perlbase-file \
         perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 pigz ppp \
         ppp-mod-pppoe proto-bonding pv rename resize2fs runc rsync subversion-client \
         subversion-libs tar tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip \
