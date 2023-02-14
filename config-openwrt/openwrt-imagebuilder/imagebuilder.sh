@@ -207,7 +207,7 @@ rebuild_firmware() {
         ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc \
         \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        zram-swap netdata kmod-fs-btrfs ca-certificates kmod-inet-diag kmod-tun \
+        zram-swap netdata kmod-fs-btrfs ca-certificates \
         \
         ${config_list} \
         "
