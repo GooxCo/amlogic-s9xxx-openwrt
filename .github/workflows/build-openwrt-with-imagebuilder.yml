@@ -70,7 +70,7 @@ on:
           - 5.4.225
           - 5.10.160
           - 5.15.85
-          - 6.1.1
+          - 6.1.12
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
