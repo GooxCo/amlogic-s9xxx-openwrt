@@ -137,7 +137,7 @@ jobs:
 
       - name: Build Immortalwrt firmware
         if: ${{ steps.imagebuilder.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: GooxCo/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: immortalwrt/bin/targets/*/*/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
