@@ -80,7 +80,7 @@ env:
   CONFIG_FILE: config-openwrt/immortalwrt-21.02/config
   DIY_P1_SH: config-openwrt/immortalwrt-21.02/diy-part1.sh
   DIY_P2_SH: config-openwrt/immortalwrt-21.02/diy-part2.sh
-  TZ: America/New_York
+  TZ: Asia/Jakarta
 
 jobs:
   build:
