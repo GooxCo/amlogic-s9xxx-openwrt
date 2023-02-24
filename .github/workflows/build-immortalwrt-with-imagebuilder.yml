@@ -131,7 +131,7 @@ jobs:
       - name: Clean up server space
         if: ${{ steps.imagebuilder.outputs.status }} == 'success' && !cancelled()
         run: |
-          cd openwrt/
+          cd immortalwrt/
           rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
           df -hT ${PWD}
 
