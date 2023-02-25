@@ -24,7 +24,7 @@ on:
       openwrt_board:
         description: "Select Amlogic board"
         required: false
-        default: "all"
+        default: "s905x"
         type: choice
         options:
           - all
@@ -88,7 +88,7 @@ on:
         default: "1024"
 
 env:
-  TZ: America/New_York
+  TZ: Asia/Jakarta
   IMAGEBUILDER_SH: config-openwrt/openwrt-imagebuilder/imagebuilder.sh
 
 jobs:
@@ -137,7 +137,7 @@ jobs:
 
       - name: Build OpenWrt firmware
         if: ${{ steps.imagebuilder.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: GooxCo/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
@@ -161,6 +161,6 @@ jobs:
             Default IP: 192.168.1.1
             Default username: root
             Default password: password
-            Default WIFI name: OpenWrt
+            Default WIFI name: JJ-Wrt
             Default WIFI password: none
             Install to EMMC: Login to OpenWrt → System → Amlogic Service → Install OpenWrt
