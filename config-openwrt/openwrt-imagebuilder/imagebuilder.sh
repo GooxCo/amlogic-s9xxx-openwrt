@@ -125,6 +125,16 @@ custom_packages() {
 
     # Download other luci-app-xxx
     # ......
+    # Download luci-app-diskman
+    diskman_api="https://api.github.com/repos/lisaac/luci-app-diskman/releases"
+    #
+    diskman_file="luci-app-diskman"
+    diskman_file_down="$(curl -s ${diskman_api} | grep "browser_download_url" | grep -oE "https.*${diskman_name}.*.ipk" | head -n 1)"
+    wget -q ${diskman_file_down} -O packages/${diskman_file_down##*/}
+    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${diskman_file} ] is downloaded successfully."
+    
+    # Download luci-app-openclash
+    # 
     openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
     #
     openclash_file="luci-app-openclash"
@@ -177,34 +187,36 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     # sorting by https://build.moz.one
     my_packages="\
-        base-files bash bc \
-        btrfs-progs busybox cgi-io \
+        acpid attr base-files bash bc blkid block-mount blockd bsdtar \
+        btrfs-progs busybox bzip2 cgi-io chattr comgt comgt-ncm containerd coremark \
         coreutils coreutils-base64 coreutils-nohup coreutils-stat coreutils-truncate curl \
-        px5g-wolfssl php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
-        fdisk gzip hostapd-common iconv iw iwinfo jq jshn \
+        dosfstools dumpe2fs e2freefrag e2fsprogs exfat-mkfs \
+        f2fs-tools f2fsck fdisk gawk getopt git-http gzip hostapd hostapd-common hostapd-utils iconv iw iwinfo jq jshn \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 libjson-script \
-        ath9k-htc-firmware hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
-        kmod-ath9k-htc kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        kmod-fs-btrfs wireless-tools wpa-cli wpa-supplicant \
-        liblucihttp liblucihttp-lua libnetwork \
-        openssl-util perl-http-date perlbase-file perlbase-getopt \
-        perlbase-time perlbase-unicode perlbase-utf8 pigz ppp ppp-mod-pppoe \
-        tar nano unzip git-http curl ca-certificates netdata \
-        ttyd uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
-        uuidgen wget-ssl wwan iperf3\
-        zoneinfo-asia zoneinfo-core zstd \
+        liblucihttp liblucihttp-lua libnetwork losetup lsattr lsblk lscpu mkf2fs \
+        mount-utils nano openssl-util parted perl-http-date perlbase-file perlbase-getopt \
+        perlbase-time perlbase-unicode perlbase-utf8 pigz ppp \
+        pv px5g-wolfssl rename resize2fs runc subversion-client subversion-libs tar \
+        tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
+        uuidgen wget-ssl whereis which wireless-tools wpa-cli wpa-supplicant wwan xfs-fsck xfs-mkfs xz \
+        xz-utils ziptool zoneinfo-asia zoneinfo-core zstd \
         \
         luci luci-base luci-compat luci-lib-base  \
         luci-lib-ip luci-lib-ipkg luci-lib-jsonc luci-lib-nixio  \
         luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system  \
         luci-proto-ipv6 luci-proto-ppp \
         \
+        luci-app-amlogic luci-app-openclash -dnsmasq kmod-nft-tproxy \
+        \
+        php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
+        \
+        kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+        zram-swap netdata kmod-fs-btrfs ca-certificates luci-app-diskman \
+        \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth \
-        kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan block-mount usb-modeswitch usbutils \
+        kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
-        \
-        luci-app-amlogic luci-app-openclash -dnsmasq kmod-nft-tproxy \
         \
         ${config_list} \
         "
