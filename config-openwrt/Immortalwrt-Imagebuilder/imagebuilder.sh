@@ -181,7 +181,7 @@ rebuild_firmware() {
         perlbase-time perlbase-unicode perlbase-utf8 pigz ppp ppp-mod-pppoe \
         proto-bonding pv rename resize2fs runc subversion-client subversion-libs tar \
         tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
-        uuidgen wget-ssl whereis which wpa-cli wpad-basic wwan xfs-fsck xfs-mkfs xz \
+        uuidgen wget-ssl whereis which wpad-basic wwan xfs-fsck xfs-mkfs xz \
         xz-utils ziptool zoneinfo-asia zoneinfo-core zstd \
         \
         luci luci-base luci-compat luci-i18n-base-en luci-i18n-base-zh-cn luci-lib-base  \
