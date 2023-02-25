@@ -92,6 +92,7 @@ adjust_settings() {
 
     # For other files
     # ......
+    sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
 
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
@@ -124,6 +125,12 @@ custom_packages() {
 
     # Download other luci-app-xxx
     # ......
+    openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
+    #
+    openclash_file="luci-app-openclash"
+    openclash_file_down="$(curl -s ${openclash_api} | grep "browser_download_url" | grep -oE "https.*${openclash_name}.*.ipk" | head -n 1)"
+    wget -q ${openclash_file_down} -O packages/${openclash_file_down##*/}
+    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${openclash_file} ] is downloaded successfully."
 
     sync && sleep 3
     echo -e "${INFO} [ packages ] directory status: $(ls packages -l 2>/dev/null)"
@@ -170,27 +177,34 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     # sorting by https://build.moz.one
     my_packages="\
-        acpid attr base-files bash bc bind-server blkid block-mount blockd bsdtar \
-        btrfs-progs busybox bzip2 cgi-io chattr comgt comgt-ncm containerd coremark \
-        coreutils coreutils-base64 coreutils-nohup coreutils-truncate curl docker \
-        docker-compose dockerd dosfstools dumpe2fs e2freefrag e2fsprogs exfat-mkfs \
-        f2fs-tools f2fsck fdisk gawk getopt gzip hostapd-common iconv iw iwinfo jq jshn \
+        base-files bash bc \
+        btrfs-progs busybox cgi-io \
+        coreutils coreutils-base64 coreutils-nohup coreutils-stat coreutils-truncate curl \
+        px5g-wolfssl php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
+        fdisk gzip hostapd-common iconv iw iwinfo jq jshn \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 libjson-script \
-        liblucihttp liblucihttp-lua libnetwork losetup lsattr lsblk lscpu mkf2fs \
-        mount-utils openssl-util parted perl-http-date perlbase-file perlbase-getopt \
+        ath9k-htc-firmware hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
+        kmod-ath9k-htc kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+        kmod-fs-btrfs wireless-tools wpa-cli wpa-supplicant \
+        liblucihttp liblucihttp-lua libnetwork \
+        openssl-util perl-http-date perlbase-file perlbase-getopt \
         perlbase-time perlbase-unicode perlbase-utf8 pigz ppp ppp-mod-pppoe \
-        proto-bonding pv rename resize2fs runc subversion-client subversion-libs tar \
-        tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
-        uuidgen wget-ssl whereis which wpa-cli wpad-basic wwan xfs-fsck xfs-mkfs xz \
-        xz-utils ziptool zoneinfo-asia zoneinfo-core zstd \
+        tar nano unzip git-http curl ca-certificates netdata \
+        ttyd uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
+        uuidgen wget-ssl wwan iperf3\
+        zoneinfo-asia zoneinfo-core zstd \
         \
-        luci luci-base luci-compat luci-i18n-base-en luci-i18n-base-zh-cn luci-lib-base  \
-        luci-lib-docker luci-lib-ip luci-lib-ipkg luci-lib-jsonc luci-lib-nixio  \
+        luci luci-base luci-compat luci-lib-base  \
+        luci-lib-ip luci-lib-ipkg luci-lib-jsonc luci-lib-nixio  \
         luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system  \
-        luci-proto-3g luci-proto-bonding luci-proto-ipip luci-proto-ipv6 luci-proto-ncm  \
-        luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay  \
+        luci-proto-ipv6 luci-proto-ppp \
         \
-        luci-app-amlogic luci-i18n-amlogic-zh-cn \
+        kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
+        kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth \
+        kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan block-mount usb-modeswitch usbutils \
+        kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
+        \
+        luci-app-amlogic luci-app-openclash -dnsmasq kmod-nft-tproxy \
         \
         ${config_list} \
         "
