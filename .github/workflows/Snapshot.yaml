@@ -17,7 +17,7 @@ on:
         default: "22.03.3"
         type: choice
         options:
-          - snapshot
+          - snapshots
           - 22.03.3
           - 21.02.5
           - 19.07.10
