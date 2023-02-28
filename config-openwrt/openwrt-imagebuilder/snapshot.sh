@@ -125,14 +125,6 @@ custom_packages() {
 
     # Download other luci-app-xxx
     # ......
-    # Download luci-app-diskman
-    diskman_api="https://api.github.com/repos/lisaac/luci-app-diskman/releases"
-    #
-    diskman_file="luci-app-diskman"
-    diskman_file_down="$(curl -s ${diskman_api} | grep "browser_download_url" | grep -oE "https.*${diskman_name}.*.ipk" | head -n 1)"
-    wget -q ${diskman_file_down} -O packages/${diskman_file_down##*/}
-    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${diskman_file} ] is downloaded successfully."
-    
     # Download luci-app-openclash
     # 
     openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
@@ -211,7 +203,7 @@ rebuild_firmware() {
         php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
         \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        zram-swap netdata kmod-fs-btrfs ca-certificates luci-app-diskman \
+        zram-swap netdata kmod-fs-btrfs ca-certificates \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth \
