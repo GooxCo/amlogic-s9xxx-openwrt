@@ -34,7 +34,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passw
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openwrt-openclash
 pushd package/openwrt-openclash/tools/po2lmo && make && sudo make install 2>/dev/null && popd
-
+# Add luci-app-xray
+svn co https://github.com/yichya/luci-app-xray/trunk package/luci-app-xray
 # coolsnowwolf default software package replaced with Lienol related software package
 # rm -rf feeds/packages/utils/{containerd,libnetwork,runc,tini}
 # svn co https://github.com/Lienol/openwrt-packages/trunk/utils/{containerd,libnetwork,runc,tini} feeds/packages/utils
