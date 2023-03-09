@@ -219,7 +219,7 @@ rebuild_firmware() {
         php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-filter \
         \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        zram-swap netdata kmod-fs-btrfs ca-certificates luci-app-diskman luci-app-tinyfm \
+        zram-swap netdata kmod-fs-btrfs ca-certificates luci-app-diskman \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth \
