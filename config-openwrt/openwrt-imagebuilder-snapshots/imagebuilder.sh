@@ -135,12 +135,12 @@ custom_packages() {
     
     # Download luci-app-tinyfm
     # 
-    tinyfm_api="https://api.github.com/repos/JJ-Coffee/Build_pack/releases"
+    #tinyfm_api="https://api.github.com/repos/JJ-Coffee/Build_pack/releases"
     #
-    tinyfm_file="luci-app-tinyfm"
-    tinyfm_file_down="$(curl -s ${tinyfm_api} | grep "browser_download_url" | grep -oE "https.*${tinyfm_name}.*.ipk" | head -n 1)"
-    wget -q ${tinyfm_file_down} -O packages/${tinyfm_file_down##*/}
-    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${tinyfm_file} ] is downloaded successfully."
+    #tinyfm_file="luci-app-tinyfm"
+    #tinyfm_file_down="$(curl -s ${tinyfm_api} | grep "browser_download_url" | grep -oE "https.*${tinyfm_name}.*.ipk" | head -n 1)"
+    #wget -q ${tinyfm_file_down} -O packages/${tinyfm_file_down##*/}
+    #[[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${tinyfm_file} ] is downloaded successfully."
     # Download luci-app-openclash
     # 
     openclash_api="https://api.github.com/repos/vernesong/OpenClash/releases"
@@ -216,7 +216,7 @@ rebuild_firmware() {
         \
         luci-app-amlogic luci-app-openclash -dnsmasq kmod-nft-tproxy \
         \
-        php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
+        php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-filter \
         \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
         zram-swap netdata kmod-fs-btrfs ca-certificates luci-app-diskman luci-app-tinyfm \
