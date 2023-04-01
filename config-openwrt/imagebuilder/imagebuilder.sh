@@ -203,7 +203,7 @@ rebuild_firmware() {
         f2fs-tools f2fsck fdisk git-http getopt gzip hostapd-common iconv iw-full iwinfo jq jshn \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 libjson-script \
         liblucihttp liblucihttp-lua libnetwork losetup lsattr lsblk lscpu mkf2fs \
-        mount-utils openssl-util parted perl-http-date perlbase-file perlbase-getopt \
+        mount-utils nano openssl-util parted perl-http-date perlbase-file perlbase-getopt \
         perlbase-time perlbase-unicode perlbase-utf8 pigz ppp ppp-mod-pppoe \
         pv resize2fs subversion-client subversion-libs tar \
         tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
@@ -219,8 +219,6 @@ rebuild_firmware() {
         \
         php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
         php8-mod-filter php8-mod-curl php8-mod-dom php8-mod-opcache php8-mod-pdo \
-        \
-        kmod-nft-tproxy kmod-inet-diag kmod-netlink-diag kmod-dnsresolver \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth \
