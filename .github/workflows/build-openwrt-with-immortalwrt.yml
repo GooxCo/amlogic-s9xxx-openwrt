@@ -87,7 +87,7 @@ on:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-21.02
+  REPO_BRANCH: v21.02.5
   FEEDS_CONF: config-openwrt/immortalwrt-21.02/feeds.conf.default
   CONFIG_FILE: config-openwrt/immortalwrt-21.02/config
   DIY_P1_SH: config-openwrt/immortalwrt-21.02/diy-part1.sh
@@ -188,7 +188,7 @@ jobs:
 
       - name: Build OpenWrt firmware
         if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: JJ-Coffee/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
