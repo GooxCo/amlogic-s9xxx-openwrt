@@ -86,7 +86,7 @@ on:
           - 5.10.1
           - 5.15.1
           - 6.1.1
-          - 6.2.2
+          - 6.2.0
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
