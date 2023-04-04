@@ -426,7 +426,7 @@ download_kernel() {
             i="1"
             for kernel_var in ${down_kernel_list[*]}; do
                 if [[ ! -d "${kernel_path}/${kd}/${kernel_var}" ]]; then
-                    kernel_down_from="https://github.com/${kernel_repo}/releases/download/kernel_${kd}/${kernel_var}.tar.gz"
+                    kernel_down_from="${kernel_repo}/${kd}/${kernel_var}.tar.gz"
                     echo -e "${INFO} (${x}.${i}) [ ${k} - ${kernel_var} ] Kernel download from [ ${kernel_down_from} ]"
 
                     mkdir -p ${kernel_path}/${kd}
