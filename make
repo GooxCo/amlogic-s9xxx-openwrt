@@ -56,6 +56,7 @@ uboot_path="${make_path}/u-boot"
 common_files="${make_path}/openwrt-files/common-files"
 platform_files="${make_path}/openwrt-files/platform-files"
 different_files="${make_path}/openwrt-files/different-files"
+patches_path="${make_path}/openwrt-files/patches"
 firmware_path="${common_files}/lib/firmware"
 model_conf="${common_files}/etc/model_database.conf"
 model_txt="${common_files}/etc/model_database.txt"
@@ -81,8 +82,10 @@ script_repo="https://github.com/ophub/luci-app-amlogic/tree/main/luci-app-amlogi
 # Convert script library address to svn format
 script_repo="${script_repo//tree\/main/trunk}"
 
-# Set the kernel download repository from github.com
+# Kernel files download repository
 kernel_repo="https://github.com/nabakdev/sibondt-kernel/tree/main/pub"
+# Set stable kernel directory: [ stable ], rk3588 kernel directory: [ rk3588 ]
+kernel_dir=("stable" "rk3588")
 # Set the list of kernels used by default
 stable_kernel=("6.1.1" "5.15.1")
 rk3588_kernel=("5.10.1")
@@ -426,7 +429,7 @@ download_kernel() {
             i="1"
             for kernel_var in ${down_kernel_list[*]}; do
                 if [[ ! -d "${kernel_path}/${kd}/${kernel_var}" ]]; then
-                    kernel_down_from="${kernel_repo}/${kd}/${kernel_var}.tar.gz"
+                    kernel_down_from="https://github.com/${kernel_repo}/releases/download/kernel_${kd}/${kernel_var}.tar.gz"
                     echo -e "${INFO} (${x}.${i}) [ ${k} - ${kernel_var} ] Kernel download from [ ${kernel_down_from} ]"
 
                     mkdir -p ${kernel_path}/${kd}
@@ -944,7 +947,7 @@ clean_tmp() {
     cd ${out_path}
 
     # Compress the OpenWrt image file
-    pigz -f *.img && sync
+    pigz -9 -f *.img && sync
 
     cd ${current_path}
 
