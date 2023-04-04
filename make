@@ -82,7 +82,7 @@ script_repo="https://github.com/ophub/luci-app-amlogic/tree/main/luci-app-amlogi
 script_repo="${script_repo//tree\/main/trunk}"
 
 # Set the kernel download repository from github.com
-kernel_repo="ophub/kernel"
+kernel_repo="JJ-Coffee/kernel"
 # Set the list of kernels used by default
 stable_kernel=("6.1.1" "5.15.1")
 rk3588_kernel=("5.10.1")
