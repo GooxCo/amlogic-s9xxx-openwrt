@@ -82,7 +82,7 @@ script_repo="https://github.com/ophub/luci-app-amlogic/tree/main/luci-app-amlogi
 script_repo="${script_repo//tree\/main/trunk}"
 
 # Set the kernel download repository from github.com
-kernel_repo="JJ-Coffee/kernel"
+kernel_repo="ophub/kernel"
 # Set the list of kernels used by default
 stable_kernel=("6.1.1" "5.15.1")
 rk3588_kernel=("5.10.1")
@@ -433,7 +433,7 @@ download_kernel() {
                     wget "${kernel_down_from}" -q -P "${kernel_path}/${kd}"
                     [[ "${?}" -ne "0" ]] && error_msg "Failed to download the kernel files from the server."
 
-                    tar -xf "${kernel_path}/${kd}/${kernel_var}.tar.gz" -C "${kernel_path}/${kd} --no-same-owner"
+                    tar -xf "${kernel_path}/${kd}/${kernel_var}.tar.gz" -C "${kernel_path}/${kd}"
                     [[ "${?}" -ne "0" ]] && error_msg "[ ${kernel_var} ] kernel decompression failed."
                 else
                     echo -e "${INFO} (${x}.${i}) [ ${k} - ${kernel_var} ] Kernel is in the local directory."
