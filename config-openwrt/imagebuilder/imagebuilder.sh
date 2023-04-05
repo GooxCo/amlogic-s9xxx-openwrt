@@ -195,35 +195,34 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     # sorting by https://build.moz.one
     my_packages="\
-        base-files bash bc blkid block-mount blockd bsdtar \
-        btrfs-progs busybox bzip2 cgi-io comgt comgt-ncm containerd coremark \
+        acpid attr base-files bash bc blkid block-mount blockd bsdtar \
+        btrfs-progs busybox bzip2 cgi-io chattr comgt comgt-ncm containerd coremark \
         coreutils coreutils-base64 coreutils-nohup coreutils-stat coreutils-truncate curl \
         dosfstools dumpe2fs e2freefrag e2fsprogs exfat-mkfs \
-        f2fs-tools f2fsck fdisk getopt gzip hostapd-common iconv iw-full iwinfo jq jshn \
+        f2fs-tools f2fsck fdisk gawk getopt gzip hostapd-common iconv iw-full iwinfo jq jshn \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 libjson-script \
-        liblucihttp liblucihttp-lua libnetwork losetup lsblk lscpu mkf2fs \
+        liblucihttp liblucihttp-lua libnetwork losetup lsattr lsblk lscpu mkf2fs \
         mount-utils nano openssl-util parted perl-http-date perlbase-file perlbase-getopt \
         perlbase-time perlbase-unicode perlbase-utf8 pigz ppp ppp-mod-pppoe \
-        pv resize2fs tar \
+        pv rename resize2fs runc subversion-client subversion-libs tar \
         tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
-        uuidgen wget-ssl wpad wwan xfs-fsck xfs-mkfs xz \
+        uuidgen wget-ssl whereis which wpad-basic wwan xfs-fsck xfs-mkfs xz \
         xz-utils ziptool zoneinfo-asia zoneinfo-core zstd \
         \
         luci luci-base luci-compat luci-lib-base  \
         luci-lib-ip luci-lib-ipkg luci-lib-jsonc luci-lib-nixio  \
         luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system  \
-        luci-proto-ipip luci-proto-ipv6 \
-        luci-proto-ppp \
+        luci-proto-3g luci-proto-ipip luci-proto-ipv6 luci-proto-ncm  \
+        luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay  \
         \
         luci-app-amlogic luci-app-openclash luci-app-diskman -dnsmasq \
-        \
-        kmod-nft-tproxy netdata \
         \
         php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
         php8-mod-filter php8-mod-curl php8-mod-dom php8-mod-opcache php8-mod-pdo \
         \
+        kmod-nft-tproxy \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
-        kmod-fs-btrfs ca-certificates \
+        netdata kmod-fs-btrfs ca-certificates \
         \
         kmod-usb-net-rndis kmod-usb-net-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset \
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth \
