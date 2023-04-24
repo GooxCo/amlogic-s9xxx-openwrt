@@ -15,10 +15,10 @@ on:
       releases_branch:
         description: "Select the releases branch"
         required: false
-        default: "openwrt:22.03.3"
+        default: "openwrt:22.03.4"
         type: choice
         options:
-          - openwrt:22.03.3
+          - openwrt:22.03.4
           - openwrt:21.02.5
           - openwrt:19.07.10
           - openwrt:18.06.9
