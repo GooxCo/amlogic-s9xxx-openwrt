@@ -28,7 +28,7 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "all"
+        default: "s905x-b860h"
         type: choice
         options:
           - all
@@ -212,7 +212,7 @@ jobs:
 
       - name: Build OpenWrt firmware
         if: ${{ steps.imagebuilder.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: JJ-Coffee/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
