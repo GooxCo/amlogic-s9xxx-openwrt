@@ -133,10 +133,10 @@ on:
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "ophub/kernel"
+        default: "JJ-Coffee/kernel"
         type: choice
         options:
-          - ophub/kernel
+          - JJ-Coffee/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -149,7 +149,7 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: v22.03.5
   FEEDS_CONF: config-openwrt/openwrt-master/feeds.conf.default
   CONFIG_FILE: config-openwrt/openwrt-master/config
   DIY_P1_SH: config-openwrt/openwrt-master/diy-part1.sh
@@ -250,7 +250,7 @@ jobs:
 
       - name: Build OpenWrt firmware
         if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: JJ-Coffee/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
