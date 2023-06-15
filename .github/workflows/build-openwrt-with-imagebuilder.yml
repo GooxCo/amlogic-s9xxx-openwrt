@@ -26,6 +26,8 @@ on:
           - openwrt:21.02.5
           - openwrt:19.07.10
           - openwrt:18.06.9
+          - openwrt:23.05.0-rc1
+          - immortalwrt:23.05.0-rc1
           - immortalwrt:21.02.6
           - immortalwrt:21.02.5
           - immortalwrt:21.02.4
@@ -147,7 +149,7 @@ on:
           - 5.4.1
           - 5.10.1
           - 5.15.1
-          - 6.1.1
+          - 6.1.23
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
