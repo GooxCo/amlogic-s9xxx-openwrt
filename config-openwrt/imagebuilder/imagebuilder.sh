@@ -189,7 +189,7 @@ rebuild_firmware() {
     my_packages="\
         acpid attr base-files bash bc blkid block-mount blockd bsdtar \
         btrfs-progs busybox bzip2 cgi-io chattr comgt comgt-ncm containerd coremark \
-        coreutils coreutils-base64 coreutils-nohup coreutils-truncate curl \
+        coreutils coreutils-base64 coreutils-nohup coreutils-stat coreutils-truncate curl \
         dosfstools dumpe2fs e2freefrag e2fsprogs exfat-mkfs \
         f2fs-tools f2fsck fdisk getopt gzip hostapd-common iconv iw-full iwinfo jq jshn \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 libjson-script \
@@ -220,6 +220,8 @@ rebuild_firmware() {
         kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb2 kmod-usb-net-ipheth \
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
+        \
+        autocore \
         \
         ${config_list} \
         "
