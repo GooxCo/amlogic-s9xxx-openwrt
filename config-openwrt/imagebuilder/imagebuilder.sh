@@ -100,10 +100,6 @@ adjust_settings() {
     # For other files
     # ......
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
-    sed -i "s|CONFIG_DEFAULT_6in4=.*|# CONFIG_DEFAULT_6in4 is not set|g" .config
-    sed -i "s|CONFIG_DEFAULT_default-settings=.*|# CONFIG_DEFAULT_default-settings is not set|g" .config
-    sed -i "s|CONFIG_DEFAULT_default-settings-chn=.*|# CONFIG_DEFAULT_default-settings-chn is not set|g" .config
-    
 
     sync && sleep 3
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
@@ -225,7 +221,7 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        autocore \
+        \
         \
         ${config_list} \
         "
