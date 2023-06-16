@@ -149,7 +149,12 @@ on:
           - 5.4.1
           - 5.10.1
           - 5.15.1
-          - 6.1.23
+          - 6.0.6
+          - 6.1.6
+          - 6.2.0
+          - 6.2.2
+          - 6.3.3
+          - 6.4.0
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
@@ -162,6 +167,7 @@ on:
         type: choice
         options:
           - ophub/kernel
+          - nabakdev/sibondt-kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
