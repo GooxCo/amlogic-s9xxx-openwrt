@@ -16,6 +16,7 @@ on:
         type: choice
         options:
           - openwrt-main
+          - openwrt-23.05
           - lede-master
           - immortalwrt-master
       openwrt_board:
