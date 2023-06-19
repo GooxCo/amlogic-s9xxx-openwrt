@@ -197,7 +197,7 @@ rebuild_firmware() {
         mount-utils nano openssl-util parted perl-http-date perlbase-file perlbase-getopt \
         perlbase-time perlbase-unicode perlbase-utf8 pigz ppp ppp-mod-pppoe \
         pv resize2fs runc tar \
-        tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch \
+        tini ttyd tune2fs uclient-fetch uhttpd uhttpd-mod-ubus unzip usb-modeswitch \
         uuidgen wget-ssl wpad-basic wwan xfs-fsck xfs-mkfs xz \
         xz-utils ziptool zoneinfo-asia zoneinfo-core zstd \
         \
@@ -221,7 +221,7 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        -mtd -automount \
+        \
         \
         ${config_list} \
         "
