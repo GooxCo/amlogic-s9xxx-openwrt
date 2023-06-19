@@ -187,7 +187,7 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     # sorting by https://build.moz.one
     my_packages="\
-        acpid attr base-files bash bc blkid block-mount blockd bsdtar \
+        acpid attr base-files bash bc blkid -block-mount -blockd bsdtar \
         btrfs-progs busybox bzip2 cgi-io chattr comgt comgt-ncm containerd coremark \
         coreutils coreutils-base64 coreutils-nohup coreutils-stat coreutils-truncate curl \
         dosfstools dumpe2fs e2freefrag e2fsprogs exfat-mkfs \
@@ -221,7 +221,7 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        autocore \
+        autocore -mtd -automount \
         \
         ${config_list} \
         "
