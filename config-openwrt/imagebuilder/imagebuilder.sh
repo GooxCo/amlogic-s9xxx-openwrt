@@ -67,7 +67,7 @@ download_imagebuilder() {
     if [[ "${op_sourse}" == "openwrt" ]]; then
         download_file="https://downloads.openwrt.org/releases/${op_branch}/targets/armvirt/64/openwrt-imagebuilder-${op_branch}-armvirt-64.Linux-x86_64.tar.xz"
     else
-        download_file="https://downloads.immortalwrt.org/releases/${op_branch}/targets/armsr/armv8/immortalwrt-imagebuilder-${op_branch}-armsr-armv8.Linux-x86_64.tar.xz"
+        download_file="https://downloads.immortalwrt.org/releases/${op_branch}/targets/armvirt/64/immortalwrt-imagebuilder-${op_branch}-armvirt-64.Linux-x86_64.tar.xz"
     fi
     wget -q ${download_file}
     [[ "${?}" -eq "0" ]] || error_msg "Wget download failed: [ ${download_file} ]"
@@ -221,13 +221,13 @@ rebuild_firmware() {
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usbutils \
         kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-dm9601-ether kmod-usb-net-rtl8152 \
         \
-        autocore -mtd -automount \
+        -mtd -automount \
         \
         ${config_list} \
         "
 
     # Rebuild firmware
-    make image PROFILE="DEVICE_generic" PACKAGES="${my_packages}" FILES="files"
+    make image PROFILE="Default" PACKAGES="${my_packages}" FILES="files"
 
     sync && sleep 3
     echo -e "${INFO} [ openwrt/bin/targets/armvirt/64 ] directory status: $(ls bin/targets/*/* -l 2>/dev/null)"
