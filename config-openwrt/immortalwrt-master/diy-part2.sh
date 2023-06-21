@@ -25,6 +25,12 @@ echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_r
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
+# Add luci-app-openclash
+svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openwrt-openclash
+pushd package/openwrt-openclash/tools/po2lmo && make && sudo make install 2>/dev/null && popd
+echo "CONFIG_PACKAGE_luci-app-openclash=y" >>.config
+
+
 # Apply patch
 # git apply ../config-openwrt/patches/{0001*,0002*}.patch --directory=feeds/luci
 #
