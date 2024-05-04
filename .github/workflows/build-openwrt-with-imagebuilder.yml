@@ -25,7 +25,7 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "all"
+        default: "s905x-b860h"
         type: choice
         options:
           - all
@@ -168,6 +168,7 @@ on:
           - 5.10.y
           - 5.15.y
           - 6.1.y
+          - 6.1.23
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
