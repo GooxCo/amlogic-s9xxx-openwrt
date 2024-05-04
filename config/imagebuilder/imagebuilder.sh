@@ -197,20 +197,18 @@ rebuild_firmware() {
         liblucihttp-lua losetup lsattr lsblk lscpu mkf2fs mount-utils nano openssl-util parted \
         perl-http-date perlbase-file perlbase-getopt perlbase-time perlbase-unicode perlbase-utf8 \
         pigz ppp ppp-mod-pppoe pv rename resize2fs runc tar tini ttyd tune2fs \
-        uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch uuidgen wget-ssl whereis \
+        uclient-fetch uhttpd uhttpd-mod-ubus unzip uqmi usb-modeswitch uuidgen wget-ssl \
         wpad-basic wwan xfs-fsck xfs-mkfs xz xz-utils ziptool zoneinfo-asia zoneinfo-core zstd \
         \
         luci luci-base luci-compat luci-lib-base \
         luci-lib-ip luci-lib-ipkg luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
-        luci-mod-status luci-mod-system luci-proto-3g luci-proto-ipip luci-proto-ipv6 \
-        luci-proto-ncm luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay \
+        luci-mod-status luci-mod-system luci-proto-ipip luci-proto-ipv6 \
+        luci-proto-ppp \
         \
         luci-app-amlogic luci-app-openclash -dnsmasq \
         \
         php8 php8-cgi php8-mod-ctype php8-mod-fileinfo php8-mod-gettext php8-mod-gmp php8-mod-iconv php8-mod-mbstring php8-mod-pcntl php8-mod-session php8-mod-zip \
         php8-mod-filter \
-        \
-        ath9k-htc-firmware kmod-ath kmod-ath9k kmod-ath9k-common kmod-ath9k-htc px5g-wolfssl \
         \
         kmod-inet-diag kmod-netlink-diag kmod-nft-tproxy kmod-nft-socket \
         kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
