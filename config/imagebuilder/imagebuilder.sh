@@ -109,7 +109,7 @@ adjust_settings() {
     # ......
     sed -i "s|CONFIG_DEFAULT_dnsmasq=.*|# CONFIG_DEFAULT_dnsmasq is not set|g" .config
     sed -i 's/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=512/g' .config
-    sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=256/g' .config
+    sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=512/g' .config
 
 
     sync && sleep 3
