@@ -27,7 +27,7 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "all"
+        default: "s905x-b860h"
         type: choice
         options:
           - all
@@ -181,13 +181,14 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "6.1.y_6.6.y"
+        default: "6.1.123"
         type: choice
         options:
           - 5.4.y
           - 5.10.y
           - 5.15.y
           - 6.1.y
+          - 6.1.123
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
@@ -298,7 +299,7 @@ jobs:
 
       - name: Packaging OpenWrt
         if: ${{ steps.imagebuilder.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: JJ-Coffee/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: imagebuilder/bin/targets/*/*/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
