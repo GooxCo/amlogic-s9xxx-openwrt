@@ -19,6 +19,7 @@ on:
         type: choice
         options:
           - openwrt:23.05.5
+          - openwrt:24.10.0-rc2
           - openwrt:23.05.4
           - openwrt:23.05.3
           - immortalwrt:23.05.4
@@ -204,6 +205,7 @@ on:
         type: choice
         options:
           - ophub/kernel
+          - armarchindo/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -214,6 +216,7 @@ on:
           - flippy
           - dev
           - beta
+          - kernel.org
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
