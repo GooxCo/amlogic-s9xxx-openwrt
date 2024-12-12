@@ -188,9 +188,9 @@ on:
           - 5.4.y
           - 5.10.y
           - 5.15.y
-          - 6.0.6
+          - 6.6.6
           - 6.1.y
-          - 6.1.123
+          - 6.1.111
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
@@ -206,7 +206,7 @@ on:
         type: choice
         options:
           - ophub/kernel
-          - armarchindo/kernel
+          - JJ-Coffee/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
