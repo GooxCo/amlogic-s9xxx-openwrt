@@ -19,7 +19,7 @@ on:
         type: choice
         options:
           - openwrt:23.05.5
-          - openwrt:24.10.0-rc2
+          - openwrt:24.10.0-rc4
           - openwrt:23.05.4
           - openwrt:23.05.3
           - immortalwrt:23.05.4
